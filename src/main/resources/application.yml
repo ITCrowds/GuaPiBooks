@@ -1,0 +1,42 @@
+#数据库连接配置
+spring:
+  datasource:
+    url: jdbc:h2:file:./src/main/resources/db/guapibooksBD;AUTO_SERVER=TRUE
+    username: root
+    password: root
+    driver-class-name: org.h2.Driver
+
+  #H2数据库WEB控制台
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: false
+        trace: false
+      path: /h2-console
+
+  thymeleaf:
+    mode: HTML5
+
+  #字符集和json格式工具
+  http:
+    encoding:
+      charset: utf-8
+    converters:
+      preferred-json-mapper: jackson
+
+#mynatis配置
+mybatis:
+  type-aliases-package: com.itcrowds.guapibooks.domain
+  #mapper加载路径
+  mapper-locations: classpath:mapper/*Mapper.xml
+  #myatbis配置文件
+  config-location: classpath:mybatis-conf.xml
+
+logging:
+  level: debug
+
+server:
+  session:
+    timeout: 3600
+  port: 8080

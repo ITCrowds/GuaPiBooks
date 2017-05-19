@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itcrowds.guapibooks.mapper.ReaderMapper">
+    <cache eviction="LRU" flushInterval="60000" readOnly="true"/>
+
+    <resultMap id="reader" type="com.itcrowds.guapibooks.domain.Reader">
+        <id column="READER_ID" property="id" javaType="Integer"/>
+        <result column="READER_NAME" property="name" javaType="String"/>
+        <result column="READER_EMAIL" property="emailAddress"/>
+        <result column="READER_PASSWORD" property="password"/>
+    </resultMap>
+
+    <select id="getReaderCount" resultType="int">
+        SELECT count(READER_ID) FROM READER
+    </select>
+
+    <select id="getReaderByName" resultMap="reader" resultType="reader">
+        SELECT * FROM READER WHERE READER_NAME = #{name}
+    </select>
+
+    <select id="getAllReaderName" resultType="String">
+        SELECT READER_NAME FROM READER
+    </select>
+</mapper>
