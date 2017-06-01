@@ -3,10 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.itcrowds.guapibooks.mapper.ReaderMapper">
+<mapper namespace="com.itcrowds.guapibooks.mapper.BookMapper">
     <cache eviction="LRU" flushInterval="60000" readOnly="true"/>
 
-    <resultMap id="bookd" type="com.itcrowds.guapibooks.domain.Book">
+    <resultMap id="book" type="com.itcrowds.guapibooks.domain.Book">
         <id column="BOOK_ID" property="book_id" javaType="Integer"/>
         <result column="BOOK_NAME" property="book_name" javaType="String"/>
         <result column="BOOK_AUTHOR" property="book_author" javaType="String"/>
@@ -21,11 +21,11 @@
         SELECT count(BOOK_ID) FROM BOOK
     </select>
 
-    <select id="getBookByName" resultMap="reader" resultType="reader">
+    <select id="getBookByName" resultMap="book" resultType="reader">
         SELECT * FROM BOOK WHERE BOOK_NAME = #{book_name}
     </select>
 
-    <select id="getAllReName" resultType="String">
-        SELECT READER_NAME FROM READER
+    <select id="getAllBookName" resultType="String">
+        SELECT BOOK_NAME FROM BOOK
     </select>
 </mapper>

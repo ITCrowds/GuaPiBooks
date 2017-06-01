@@ -1,4 +1,4 @@
-#Êı¾İ¿âÁ¬½ÓÅäÖÃ
+#æ•°æ®åº“è¿æ¥é…ç½®
 spring:
   datasource:
     url: jdbc:h2:file:./src/main/resources/db/guapibooksBD;AUTO_SERVER=TRUE
@@ -6,7 +6,7 @@ spring:
     password: root
     driver-class-name: org.h2.Driver
 
-  #H2Êı¾İ¿âWEB¿ØÖÆÌ¨
+  #H2æ•°æ®åº“WEBæ§åˆ¶å°
   h2:
     console:
       enabled: true
@@ -18,19 +18,19 @@ spring:
   thymeleaf:
     mode: HTML5
 
-  #×Ö·û¼¯ºÍjson¸ñÊ½¹¤¾ß
+  #å­—ç¬¦é›†å’Œjsonæ ¼å¼å·¥å…·
   http:
     encoding:
       charset: utf-8
     converters:
       preferred-json-mapper: jackson
 
-#mynatisÅäÖÃ
+#mynatisé…ç½®
 mybatis:
   type-aliases-package: com.itcrowds.guapibooks.domain
-  #mapper¼ÓÔØÂ·¾¶
+  #mapperåŠ è½½è·¯å¾„
   mapper-locations: classpath:mapper/*Mapper.xml
-  #myatbisÅäÖÃÎÄ¼ş
+  #myatbisé…ç½®æ–‡ä»¶
   config-location: classpath:mybatis-conf.xml
 
 logging:

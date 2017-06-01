@@ -21,7 +21,7 @@ public class BookTests {
     @Test
     public void test() throws Exception {
         Assert.assertEquals(2, bookMapper.getBookCount());
-        Assert.assertEquals("机器学习", bookMapper.getReaderByName("机器学习").getBook_name());
+        Assert.assertEquals("机器学习", bookMapper.getBookByName("机器学习").getBook_name());
         Assert.assertEquals(2, bookMapper.getAllBookName().size());
     }
 }
