@@ -54,5 +54,6 @@ buildNumber.properties
 mvn*
 #*.iml
 out/
+src/main/resources/db/*.trace.db
 
 node_modules
