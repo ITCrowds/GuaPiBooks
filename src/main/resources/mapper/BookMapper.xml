@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itcrowds.guapibooks.mapper.ReaderMapper">
+    <cache eviction="LRU" flushInterval="60000" readOnly="true"/>
+
+    <resultMap id="bookd" type="com.itcrowds.guapibooks.domain.Book">
+        <id column="BOOK_ID" property="book_id" javaType="Integer"/>
+        <result column="BOOK_NAME" property="book_name" javaType="String"/>
+        <result column="BOOK_AUTHOR" property="book_author" javaType="String"/>
+        <result column="BOOK_ISBN" property="book_isbn" javaType="String"/>
+        <result column="BOOK_VIEWS" property="book_views" javaType="Integer"/>
+        <result column="BOOK_MARKS" property="book_marks" javaType="Integer"/>
+        <result column="BOOK_INTRODUCTION" property="book_introduction" javaType="String"/>
+        <result column="BOOK_PIC" property="book_pic" javaType="String"/>
+    </resultMap>
+
+    <select id="getBookCount" resultType="int">
+        SELECT count(BOOK_ID) FROM BOOK
+    </select>
+
+    <select id="getBookByName" resultMap="reader" resultType="reader">
+        SELECT * FROM BOOK WHERE BOOK_NAME = #{book_name}
+    </select>
+
+    <select id="getAllReName" resultType="String">
+        SELECT READER_NAME FROM READER
+    </select>
+</mapper>
