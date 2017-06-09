@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-// 使用XML配置SQL
+
 @Mapper
 public interface ReaderMapper {
 
@@ -16,5 +16,7 @@ public interface ReaderMapper {
     List<String> getAllReaderName();
 
     Reader getReaderByName(@Param("name") String name);
+
+    Reader getReaderByEmail(@Param("email") String email);
 
 }

@@ -1,18 +1,23 @@
 package com.itcrowds.guapibooks.service;
 
-import com.itcrowds.guapibooks.mapper.ReaderMapper;
-import com.itcrowds.guapibooks.util.Md5Util;
 
-import org.springframework.stereotype.Service;
+import com.itcrowds.guapibooks.domain.Reader;
 
-import javax.annotation.Resource;
+public interface ReaderService {
 
-@Service
-public class ReaderService {
-    @Resource
-    private ReaderMapper readerMapper;
+    /**
+     * 检验用户密码是否正确
+     * @param readerName 用户名
+     * @param password 密码
+     * @return 密码是否正确
+     */
+    boolean checkPassword(String readerName, String password);
 
-    public boolean checkPassword(String username, String password) {
-        return Md5Util.pwdDigest(password).equals(readerMapper.getReaderByName(username).getPassword());
-    }
+    /**
+     * 根据用户名获取用户
+     * @param readerName 用户名
+     * @return 用户
+     */
+    Reader getReaderByEamil(String readerName);
+
 }
