@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>瓜皮读书 · 以书会友</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/login.css" rel="stylesheet "/>
+
+</head>
+
+
+<body>
+
+<!--<form class="msform">-->
+    <!-- fieldsets -->
+    <!--<fieldset>-->
+        <!--<h2>登录</h2>-->
+        <!--<label>邮箱:</label>-->
+        <!--<input type="text" id="email" placeholder="邮箱"  required="true"/>-->
+        <!--<label>密码:</label>-->
+        <!--<input type="password" id="pass" placeholder="密码" required="true"/>-->
+        <!--<input type="checkbox" id="chksave"/><p id="chk_hint">是否保存密码</p>-->
+        <!--<input type="button" id="valid" value="登录"/>-->
+    <!--</fieldset>-->
+<!--</form>-->
+
+<form name="login" action="/login" method="post" class="msform">
+    <fieldset>
+        <h2>登录</h2>
+        <label for="username">邮箱:</label>
+        <input type="text" name="username" id="username" placeholder="邮箱" required="true"/>
+        <label for="password">密码:</label>
+        <input type="password" name="password" id="password" placeholder="密码" required="true"/>
+        <input type="checkbox" id="chksave"/>
+        <p id="chk_hint">是否保存密码</p>
+        <input type="submit" class="sub_button" name="button" id="login-button" value="登录"/>
+    </fieldset>
+</form>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

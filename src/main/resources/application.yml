@@ -17,6 +17,7 @@ spring:
 
   thymeleaf:
     mode: HTML5
+    cache: false
 
   #字符集和json格式工具
   http:
@@ -34,6 +35,7 @@ mybatis:
   config-location: classpath:mybatis-conf.xml
 
 logging:
+  config: classpath:log4j2.xml
   level: debug
 
 server:
