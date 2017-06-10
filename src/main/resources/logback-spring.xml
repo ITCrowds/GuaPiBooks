@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <!--<logger name="org.springframework.web" level="DEBUG"/>-->
+    <logger name="com.itcrowds.guapibooks.mapper" level="DEBUG"/>
+    <logger name="com.itcrowds.guapibooks.controller" level="DEBUG"/>
+    <logger name="com.itcrowds.guapibooks.service" level="DEBUG"/>
+    <logger name="org.mybatis.spring.mapper" level="DEBUG"/>
+    <logger name="org.springframework.security.authentication" level="DEBUG"/>
+    <logger name="org.springframework.security.access" level="DEBUG"/>
+
+</configuration>

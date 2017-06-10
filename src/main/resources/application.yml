@@ -25,6 +25,9 @@ spring:
       charset: utf-8
     converters:
       preferred-json-mapper: jackson
+  output:
+    ansi:
+      enabled: always
 
 #mynatis配置
 mybatis:
@@ -35,10 +38,11 @@ mybatis:
   config-location: classpath:mybatis-conf.xml
 
 logging:
-  config: classpath:log4j2.xml
   level: debug
 
 server:
   session:
     timeout: 3600
   port: 8080
+
+#debug: true

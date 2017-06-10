@@ -3,6 +3,8 @@
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <settings>
+        <!--设置mybatis日志类型-->
+        <setting name="logImpl" value="SLF4J"/>
         <!--配置的缓存的全局开关。-->
         <setting name="cacheEnabled" value="true"/>
         <!--延迟加载的全局开关。当开启时，所有关联对象都会延迟加载。 特定关联关系中可通过设置fetchType属性来覆盖该项的开关状态。-->

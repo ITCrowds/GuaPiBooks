@@ -43,7 +43,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         }
 
         if (reader == null) {
-            throw new UsernameNotFoundException("用户名/密码无效");
+            throw new UsernameNotFoundException("用户名无效");
         }
 
         //数据库用户的密码
@@ -51,7 +51,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String pwdDigest = Md5Util.pwdDigest(token.getCredentials().toString());
         //与authentication里面的credentials相比较
         if (!password.equals(pwdDigest)) {
-            throw new BadCredentialsException("Invalid username/password");
+            throw new BadCredentialsException("用户名/密码无效");
         }
 
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
@@ -62,7 +62,6 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
         return new UsernamePasswordAuthenticationToken(reader, password, authorities);
-        // return new UsernamePasswordAuthenticationToken(reader, password);
     }
 
     @Override
