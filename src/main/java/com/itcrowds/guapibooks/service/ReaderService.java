@@ -18,6 +18,6 @@ public interface ReaderService {
      * @param readerName 用户名
      * @return 用户
      */
-    Reader getReaderByEamil(String readerName);
+    Reader getReaderByEmail(String readerName);
 
 }

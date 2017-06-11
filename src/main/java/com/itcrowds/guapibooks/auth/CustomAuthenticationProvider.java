@@ -34,7 +34,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         //从数据库找到的用户
         Reader reader = null;
         if (userEmail != null) {
-            reader = readerService.getReaderByEamil(userEmail);
+            reader = readerService.getReaderByEmail(userEmail);
         }
 
         if (reader == null) {

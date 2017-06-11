@@ -20,7 +20,7 @@ public class ReaderServiceImpl implements ReaderService {
     }
 
     @Override
-    public Reader getReaderByEamil(String email) {
+    public Reader getReaderByEmail(String email) {
         return readerMapper.getReaderByEmail(email);
     }
 }
