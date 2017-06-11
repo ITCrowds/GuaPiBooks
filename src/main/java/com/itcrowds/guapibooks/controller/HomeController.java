@@ -1,11 +1,10 @@
 package com.itcrowds.guapibooks.controller;
 
-import com.itcrowds.guapibooks.domain.Reader;
+import com.itcrowds.guapibooks.controller.navigationBar.NavigationBar;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,21 +14,16 @@ public class HomeController
 {
     private static Logger logger = LoggerFactory.getLogger(HomeController.class);
 
+    @Autowired
+    private NavigationBar navigationBar;
+
     /**
      * 主页面
      */
     @RequestMapping("/")
     public String homePage(Model model){
+        navigationBar.setNavigationBar(model);
 
-        if (SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken) {
-            model.addAttribute("isLogin", false);
-            logger.info("NOT LOGIN");
-        } else {
-            Reader reader = (Reader) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            model.addAttribute("isLogin", true);
-            model.addAttribute("readerName", reader.getName());
-            logger.info("Reader is: " + reader.getName());
-        }
         return "books/index";
     }
 }

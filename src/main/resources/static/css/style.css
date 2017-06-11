@@ -1,0 +1,167 @@
+body{
+    padding: 70px;
+    padding-left: 0;
+    padding-right: 0px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+div{
+    border: 1px;
+}
+body,html {
+
+    margin: 0;
+}
+
+.wrapper {
+    display: grid;
+}
+.img_occur{
+    width: 75px;
+    height: 100px;
+    background-color: #27AE60;
+}
+
+
+.letter {
+    background-color: #0069b3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: 70px;
+    color: white;
+    line-height: 1;
+    font-family: 'hobeaux-rococeaux-background', Helvetica;
+    font-weight: 200;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1px;
+    background-color: black;
+}
+
+
+
+a,a:hover{
+    text-decoration: none;
+}
+
+.divContent{
+    min-height: 350px;
+}
+
+.junbotron{
+    background-color: #fdfdfd;
+}
+.slide-list {
+    position: relative;
+    font-size: 0;
+}
+
+.list-col5 li {
+    float: left;
+    width: 129px;
+    margin-right: 10px;
+}
+
+
+.list-col5 .title {
+    display: block;
+    font-size: 12px;
+}
+.carousel .title, .carousel .author, .carousel .publisher {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.section .list-col5 .title {
+    font-size: 12px;
+    margin-bottom: 5px;
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    _width: 106px;
+}
+a img {
+    border-width: 0;
+    vertical-align: middle;
+}
+.books-express .slide-item {
+     width: 605px;
+}
+.books-express .list-express .info {
+    padding: 0 2px;
+}
+.clearfloat{
+    clear: left;
+}
+
+.tag, .tag:link, .tag:visited {
+    width: auto;
+    word-break: keep-all;
+    white-space: nowrap;
+    background-color: #f5f5f5;
+    color: #37A;
+    font-size: 13px;
+    padding: 2px 11px 0;
+    display: inline-block;
+    margin: 0 3px 5px 0;
+    line-height: 20px;
+}
+
+.hot-tags-col5 li ul li {
+    float: left;
+    display: inline;
+    width: 62px;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.list-ranking {
+    font-size: 13px;
+}
+
+.list-ranking .item {
+    overflow: hidden;
+    padding: 4px 0;
+    border-bottom: 1px dashed #ddd;
+}
+
+.list-ranking .rank-num {
+    float: left;
+    width: 20px;
+    text-align: center;
+}
+
+.list-ranking .book-info {
+    float: left;
+    width: 223px;
+}
+a:visited, a:hover, a:focus {
+    background-color: transparent;
+}
+
+.list-ranking .buy-button {
+    border: 1px solid transparent;
+    float: right;
+    color: #999;
+    font-size: 12px;
+    line-height: 100%;
+    padding: 6px 8px;
+    position: relative;
+    top: 8px;
+    right: 5px;
+}
