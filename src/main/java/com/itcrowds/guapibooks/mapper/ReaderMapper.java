@@ -19,4 +19,5 @@ public interface ReaderMapper {
 
     Reader getReaderByEmail(@Param("email") String email);
 
+    Reader getReaderById(@Param("id") int id);
 }

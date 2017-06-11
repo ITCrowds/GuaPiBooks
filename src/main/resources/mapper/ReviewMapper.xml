@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itcrowds.guapibooks.mapper.ReviewMapper">
+    <cache eviction="LRU" flushInterval="60000" readOnly="true"/>
+
+    <resultMap id="review" type="com.itcrowds.guapibooks.domain.Review">
+        <id column="REVIEW_ID" property="reviewId" javaType="Integer"/>
+        <result column="BOOK_ID" property="bookId" javaType="Integer"/>
+        <result column="REVIEW_CONTENT" property="reviewContent" javaType="String"/>
+        <result column="READER_NAME" property="readerName" javaType="String"/>
+    </resultMap>
+
+    <select id="getOneBookAllReviews" resultMap="review" resultType="review">
+        SELECT REVIEW_CONTENT,READER.READER_NAME FROM REVIEW,READER WHERE BOOK_ID = #{bookId}
+        AND REVIEW.READER_ID = READER.READER_ID
+    </select>
+</mapper>

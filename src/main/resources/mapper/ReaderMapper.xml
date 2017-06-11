@@ -21,6 +21,10 @@
         SELECT * FROM READER WHERE READER_NAME = #{name}
     </select>
 
+    <select id="getReaderById" resultMap="reader" resultType="reader">
+        SELECT * FROM READER WHERE READER_ID = #{id}
+    </select>
+
     <select id="getReaderByEmail" resultMap="reader" resultType="reader">
         SELECT * FROM READER WHERE READER_EMAIL = #{email}
     </select>
@@ -28,4 +32,5 @@
     <select id="getAllReaderName" resultType="String">
         SELECT READER_NAME FROM READER
     </select>
+
 </mapper>

@@ -20,4 +20,5 @@ public interface ReaderService {
      */
     Reader getReaderByEmail(String readerName);
 
+    Reader getReaderById(int readerId);
 }
