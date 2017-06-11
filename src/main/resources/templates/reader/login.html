@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport"
@@ -14,33 +14,28 @@
 
 
 <body>
-
-<!--<form class="msform">-->
-    <!-- fieldsets -->
-    <!--<fieldset>-->
-        <!--<h2>登录</h2>-->
-        <!--<label>邮箱:</label>-->
-        <!--<input type="text" id="email" placeholder="邮箱"  required="true"/>-->
-        <!--<label>密码:</label>-->
-        <!--<input type="password" id="pass" placeholder="密码" required="true"/>-->
-        <!--<input type="checkbox" id="chksave"/><p id="chk_hint">是否保存密码</p>-->
-        <!--<input type="button" id="valid" value="登录"/>-->
-    <!--</fieldset>-->
-<!--</form>-->
-
-<form name="login" action="/login" method="post" class="msform">
-    <fieldset>
-        <h2>登录</h2>
-        <label for="username">邮箱:</label>
-        <input type="text" name="username" id="username" placeholder="邮箱" required="true"/>
-        <label for="password">密码:</label>
-        <input type="password" name="password" id="password" placeholder="密码" required="true"/>
-        <input type="checkbox" id="chksave"/>
-        <p id="chk_hint">是否保存密码</p>
-        <input type="submit" class="sub_button" name="button" id="login-button" value="登录"/>
-    </fieldset>
-</form>
-
+<div>
+    <form name="login" action="/login" method="post" class="msform">
+        <fieldset>
+            <div th:if="${param.logout}" style="color: #27AE60">
+                您已注销成功
+            </div>
+            <h2>登录</h2>
+            <label for="username">邮箱:</label>
+            <input type="text" name="username" id="username" placeholder="邮箱" maxlength="256" required="true"/>
+            <label for="password">密码:</label>
+            <input type="password" name="password" id="password" placeholder="密码" maxlength="256" required="true"/>
+            <input type="checkbox" id="chksave"/>
+            <p id="chk_hint">是否保存密码</p>
+            <input type="submit" class="sub_button" name="button" id="login-button" value="登录"/>
+            <div th:if="${param.error}">
+                <p th:text="${session.SPRING_SECURITY_LAST_EXCEPTION.message}" style="color: red">
+                    没有错误信息
+                </p>
+            </div>
+        </fieldset>
+    </form>
+</div>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

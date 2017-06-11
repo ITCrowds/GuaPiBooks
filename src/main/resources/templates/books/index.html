@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport"
@@ -9,8 +9,13 @@
 </head>
 <body>
 <h1>首页</h1>
-<div>
-    <a href="/reader/readerspace">登录/书房</a>
+<div th:if="${isLogin == true}">
+    <span th:text="'欢迎 ' + ${readerName}"></span>
+    <p>这是个性推荐</p>
+    <a href="/reader/readerspace">书房</a>
+</div>
+<div th:if="${isLogin == false}">
+    更多内容，请先<a href="/reader/readerspace">登录/书房</a>
 </div>
 </body>
 </html>

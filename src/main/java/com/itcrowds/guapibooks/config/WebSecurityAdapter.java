@@ -3,9 +3,8 @@ package com.itcrowds.guapibooks.config;
 
 import com.itcrowds.guapibooks.auth.CustomAuthenticationProvider;
 
-import org.springframework.context.annotation.Bean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -19,11 +18,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
 public class WebSecurityAdapter extends WebSecurityConfigurerAdapter {
 
-    @Bean
-    public AuthenticationProvider authenticationProvider(){
-        AuthenticationProvider authenticationProvider=new CustomAuthenticationProvider();
-        return authenticationProvider;
-    }
+    @Autowired
+    private CustomAuthenticationProvider authenticationProvider;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -43,24 +39,20 @@ public class WebSecurityAdapter extends WebSecurityConfigurerAdapter {
                 // .hasRole("ROLE_ADMIN")
                 // 记住密码有效期
 
-                .and().rememberMe().tokenValiditySeconds(60 * 60)
+                .and().rememberMe().tokenValiditySeconds(10)
                 // 设置cookies的私密钥
                 .key("EumJi025")
 
                 // 登录页面不需要密码  并在成功后自动跳转到指定页面
                 .and().formLogin().loginPage("/login").defaultSuccessUrl("/reader/readerspace")
-                .failureUrl("/login?err=1001")  // 登陆失败页面
-                // .failureHandler(new AuthenticationFailureHandler() {
-                //     @Override
-                //     public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
-                //         // httpServletResponse.getStatus();
-                //     }
-                // })
+                .failureUrl("/login?error=true")  // 登陆失败页面
+
                 .permitAll()
 
                 // 登出页面不需要验证
-                .and().logout().logoutUrl("/reader/logout")
-                .logoutSuccessUrl("/")
+                .and().logout().logoutUrl("/logout")
+                // .logoutSuccessUrl("/")
+                .logoutSuccessUrl("/login?logout=true")
                 .permitAll();
     }
 
@@ -73,7 +65,7 @@ public class WebSecurityAdapter extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(authenticationProvider());
+        auth.authenticationProvider(authenticationProvider);
     }
 }
 
