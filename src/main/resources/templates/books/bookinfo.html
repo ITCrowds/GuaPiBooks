@@ -11,59 +11,19 @@
     <!--link rel="icon" href=""-->
 
     <title>以书会友</title>
-
     <!-- Bootstrap core CSS -->
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="style/style.css" rel="stylesheet " />
-    <link href="style/book-info.css" rel="stylesheet" />
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/style.css" rel="stylesheet "/>
+    <link href="/css/bookinfo.css" rel="stylesheet"/>
 </head>
 
 <body>
-
-<!--navbar-->
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">以书会友</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">主页</a></li>
-                <li><a href="gallery-1.html">百科</a></li>
-            </ul>
-            <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search" />
-                </div>
-                <button type="submit" class="btn btn-default">搜索</button>
-            </form>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="sign.html">注册</a></li>
-                <li><a href="sign_in.html">登录</a></li>
-                <li class="active">
-                    <a href="userspace.html">我</a><span class="sr-only">(current)</span>
-                        <span class="badge pull-right">42</span>
-                </li>
-            </ul>
-        </div><!--/.nav-collapse -->
-    </div>
-</nav>
+<nav th:replace="module/navbar :: navbar"></nav>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-push-2">
             <div class = "book-header">
-                <h2><span th:text="${book_name}">机器学习</span></h2>
+                <h2><span th:text="${bookName}">机器学习</span></h2>
             </div>
             <div id="content">
                 <div class="grid-16-8 clearfix">
@@ -81,10 +41,10 @@
                                             <div id="info" class="">
                                                 <span class="pl">作者:</span>&nbsp;
                                                 <a href="https://book.douban.com/search/周志华/">
-                                                    <span th:text="${book_author}"></span></a>
+                                                    <span th:text="${book.bookAuthor}"></span></a>
                                                 <br />
                                                 <span class="pl">ISBN:</span>
-                                                <span th:text="${book_isbn}"></span>
+                                                <span th:text="${book.bookIsbn}"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -219,13 +179,7 @@
                             <div class="indent" id="link-report">
                                 <span class="short">
                                     <div class="intro">
-                                        <p>机器学习是计算机科学与人工智能的重要分支领域. 本书作为该领域的入门教材，在内容上尽可能涵盖机器学习基础知识的各方面。 为了使尽可能多的读者通过本书对机器学习有所了解, 作者试图尽可能少地使用数学知识. 然而, 少量的概率、统计、代数、优化、逻辑知识似乎不可避免. 因此, 本书更适合大学三年级以上的理工科本科生和研究生, 以及具有类似背景的对机器学 习感兴趣的人士. 为方便读者, 本书附录给出了一些相关数学基础知识简介.</p>    <p>全书共16 章，大致分为3 个部分：第1 部分（第1～3 章）介绍机器学习的基础知识；第2 部分（第4～10 章）讨论一些经典而常用的机器学习方法（决策树、神经网络、支持向量机、贝叶斯分类器、集成学习、聚类、降维与度量学习）；第3 部分（第11～16 章）为进阶知识，内容涉及特征选择与稀疏学习、计算学习理论、半监督学习、概率图模型、...</p><p><a href="javascript:void(0)" class="j a_show_full">(展开全部)</a></p></div></span>
-                                <span class="all hidden">
-                                    <div class="">
-                                        <div class="intro">
-                                            <p>机器学习是计算机科学与人工智能的重要分支领域. 本书作为该领域的入门教材，在内容上尽可能涵盖机器学习基础知识的各方面。 为了使尽可能多的读者通过本书对机器学习有所了解, 作者试图尽可能少地使用数学知识. 然而, 少量的概率、统计、代数、优化、逻辑知识似乎不可避免. 因此, 本书更适合大学三年级以上的理工科本科生和研究生, 以及具有类似背景的对机器学 习感兴趣的人士. 为方便读者, 本书附录给出了一些相关数学基础知识简介.</p>    <p>全书共16 章，大致分为3 个部分：第1 部分（第1～3 章）介绍机器学习的基础知识；第2 部分（第4～10 章）讨论一些经典而常用的机器学习方法（决策树、神经网络、支持向量机、贝叶斯分类器、集成学习、聚类、降维与度量学习）；第3 部分（第11～16 章）为进阶知识，内容涉及特征选择与稀疏学习、计算学习理论、半监督学习、概率图模型、规则学习以及强化学习等.前3章之外的后续各章均相对独立, 读者可根据自己的兴趣和时间情况选择使用. 根据课时情况, 一个学期的本科生课程可考虑讲授前9章或前10章; 研究生课程则不妨使用全书.</p>    <p>书中除第1章外, 每章都给出了十道习题. 有的习题是帮助读者巩固本章学习, 有的是为了引导读者扩展相关知识. 一学期的一般课程可使用这些习题, 再辅以两到三个针对具体数据集的大作业. 带星号的习题则有相当难度, 有些并无现成答案, 谨供富有进取心的读者启发思考.</p>
-                                            <p>本书可作为高等院校计算机、自动化及相关专业的本科生或研究生教材，也可供对机器学习感兴趣的研究人员和工程技术人员阅读参考。</p>
-                                        </div>
+                                        <span th:text = "${book.bookIntroduction}"></span>
                                     </div>
                                 </span>
                             </div>
@@ -240,25 +194,18 @@
                                     </h2>
                                 </header>
                                 <div class="review-list">
-                                    <div xmlns:v="http://rdf.data-vocabulary.org/#" typeof="v:Review">
                                         <div class="main review-item" id="7762499">
                                             <header class="main-hd">
-                                                <h3 class="title">
-                                                    <a href="https://book.douban.com/review/7762499/" class="title-link">教材书籍</a>
-                                                    <div class="toggle_review right">        <a href="javascript:;" id="toggle-7762499" class="indicator unfold j" title="展开全文">        </a>
-                                                    </div>
-                                                </h3>
-                                                <div class="header-more">
-                                                    <a class="author-avatar" href="https://www.douban.com/people/126379976/"><img width="48" height="48" src="https://img3.doubanio.com/icon/u126379976-1.jpg" /></a>
-                                                    <a href="https://www.douban.com/people/126379976/" class="author">
-                                                        <span property="v:reviewer">SCUT-苏东</span>
-                                                    </a>
-                                                    <span property="v:rating" class="allstar50 main-title-rating" title="力荐"></span>
-                                                    <span property="v:dtreviewed" content="2016-02-06" class="main-meta">2016-02-06 08:03:23</span>
-                                                </div>
+                                                <tr th:each="review:${reviewList}">
+                                                    <td th:text="${reviewStat.count}">
+                                                    </td>
+                                                    <td th:text="${review.ReaderName}">
+                                                    </td>
+                                                    <td th:text="${review.ReviewContent}">
+                                                    </td>
+                                                </tr>
                                             </header>
                                         </div>
-                                    </div>
                                 </div>
                             </section>
                             <div class="ugc-mod reading-notes">
@@ -355,7 +302,6 @@
         </div>
     </div>
 </div>
-
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

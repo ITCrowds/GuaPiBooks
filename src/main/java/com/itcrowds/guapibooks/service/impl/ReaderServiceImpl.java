@@ -23,4 +23,10 @@ public class ReaderServiceImpl implements ReaderService {
     public Reader getReaderByEmail(String email) {
         return readerMapper.getReaderByEmail(email);
     }
+
+     @Override
+    public Reader getReaderById(int id){
+        return readerMapper.getReaderById(id);
+     }
+
 }

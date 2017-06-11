@@ -1,8 +1,10 @@
 package com.itcrowds.guapibooks.mapper;
 
 import com.itcrowds.guapibooks.domain.Book;
+import com.itcrowds.guapibooks.domain.Reader;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -13,7 +15,7 @@ public interface BookMapper {
 
     List<String> getAllBookName();
 
-    Book getBookByName(@Param("book_name") String book_name);
+    Book getBookByName(@Param("bookName") String bookName);
 
-    Book getBookById(@Param("book_id") int book_id);
+    Book getBookById(@Param("bookId") int bookId);
 }
