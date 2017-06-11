@@ -25,6 +25,10 @@
         SELECT * FROM BOOK WHERE BOOK_NAME = #{book_name}
     </select>
 
+    <select id="getBookById" resultMap="book" resultType="reader">
+        SELECT * FROM BOOK WHERE BOOK_ID = #{book_id}
+    </select>
+
     <select id="getAllBookName" resultType="String">
         SELECT BOOK_NAME FROM BOOK
     </select>
