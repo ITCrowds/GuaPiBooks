@@ -18,7 +18,16 @@
     <form name="login" action="/login" method="post" class="msform">
         <fieldset>
             <div th:if="${param.logout}" style="color: #27AE60">
-                您已注销成功
+                您已注销成功<br/>
+                <a href="/"><span id="jumpTo">3</span>秒后系统会自动跳转，点击直接跳转</a>
+                <script th:inline="javascript">
+                    /*<![CDATA[*/
+                    var jumpTo = document.getElementById('jumpTo');
+                    var sec = 3;
+                    setTimeout(function () {location='/';},3000);
+                    setInterval(function () {jumpTo.innerHTML=--sec}, 1000);
+                    /*]]>*/
+                </script>
             </div>
             <h2>登录</h2>
             <label for="username">邮箱:</label>
