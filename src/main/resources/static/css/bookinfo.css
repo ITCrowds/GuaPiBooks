@@ -1,0 +1,246 @@
+#content {
+    min-height: 420px;
+}
+
+.clearfix {
+    display: block;
+}
+
+.clearfix {
+    zoom: 1;
+    display: inline-block;
+    _height: 1px;
+}
+
+.clearfix {
+    display: block;
+}
+
+.clearfix {
+    zoom: 1;
+    display: inline-block;
+    _height: 1px;
+}
+
+div, dl, dt, dd, ul, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, blockquote {
+    margin: 0;
+    padding: 0;
+}
+.grid-16-8 .article {
+    float: left;
+    width: 590px;
+    padding-right: 40px;
+}
+.indent {
+    word-break: break-all;
+}
+
+.subjectwrap {
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.subjectwrap {
+    float: none;
+    width: auto;
+}
+.subject {
+    float: left;
+    width: 415px;
+}
+#mainpic {
+    margin: 3px 0 0 0;
+    float: left;
+    text-align: center;
+    margin: 3px 12px 0 0;
+    max-width: 155px;
+    overflow: hidden;
+}
+
+
+#mainpic a img {
+    margin-bottom: 10px;
+}
+
+.article img {
+    max-width: 100%;
+}
+
+a img {
+    border-width: 0;
+    vertical-align: middle;
+}
+#info {
+    float: left;
+    max-width: 248px;
+    word-wrap: break-word;
+}
+.pl {
+    font: 12px Arial, Helvetica, sans-serif;
+    line-height: 150%;
+    color: #666666;
+}
+
+#interest_sectl .rating_wrap {
+    padding-bottom: 15px;
+    font-size: 12px;
+    line-height: 14px;
+}
+#interest_sectl .rating_wrap .rating_logo {
+    line-height: 1;
+}
+#interest_sectl {
+    float: left;
+    width: 155px;
+    margin: 2px 0 0 0;
+    padding: 0 0 0 15px;
+    border-left: 1px solid #eaeaea;
+    color: #9b9b9b;
+}
+div {
+    display: block;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clearbox {
+    clear: both;
+    width: 100%;
+}
+#interest_sectl .rating_wrap .rating_logo {
+    line-height: 1;
+}
+
+#interest_sectl .rating_self {
+    padding: 0;
+    line-height: 2;
+}
+#interest_sectl .rating_self:before, #interest_sectl .rating_self:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+#interest_sectl .rating_num {
+    color: #494949;
+    padding: 0;
+    min-width: 30%;
+    font-size: 28px;
+}
+
+.rating_nums, .rating_num {
+    color: #e09015;
+    font-size: 12px;
+    padding: 0 3px;
+}
+
+.ll {
+    float: left;
+}
+
+address, caption, cite, code, dfn, em, i, strong, th, var, optgroup {
+    font-style: normal;
+    font-weight: normal;
+}
+
+strong, b {
+    font-weight: bold;
+}
+#interest_sectl .rating_right {
+    float: left;
+    padding: 10px 0 10px 6px;
+}
+
+.bigstar45 {
+    background-position: 0 -15px;
+}
+
+.bigstar50, .bigstar45, .bigstar40, .bigstar35, .bigstar30, .bigstar25, .bigstar20, .bigstar15, .bigstar10, .bigstar05, .bigstar00 {
+    display: inline-block;
+    zoom: 1;
+
+   width: 75px;
+    height: 15px;
+    margin: 1px 0 0 0;
+    overflow: hidden;
+}
+
+.bigstar45 {
+    background-position: 0 -15px;
+}
+#interest_sectl .rating_self .rating_sum {
+    clear: both;
+}
+
+.starstop {
+    float: left;
+}
+.starstop, .stars {
+    margin-right: 5px;
+}
+
+.starstop {
+    margin: 0;
+}
+#interest_sectl .power {
+    height: 10px;
+    float: left;
+    margin: 1px 4px;
+    background: #ffd596 none repeat scroll 0 0;
+}
+#interest_sectl .rating_per {
+    font-size: 11px;
+}
+
+#interest_sect_level {
+    clear: both;
+    padding: 20px 0 3px;
+}
+a.colbutt:visited {
+    color: #777;
+    text-decoration: none;
+}
+
+a.colbutt {
+    color: #111;
+}
+
+a:link, a:visited, a:focus {
+    color: #3377aa;
+}
+a.colbutt span {
+
+    display: block;
+    padding: 1px 1px 3px 11px;
+    line-height: 22px;
+}
+form {
+    margin: 0;
+    padding: 0;
+    border: 0px;
+}
+.miniform {
+    display: inline;
+}
+#stars {
+    font-size: 0;
+    vertical-align: text-bottom;
+    cursor: pointer;
+}
+.pl {
+    font: 12px Arial, Helvetica, sans-serif;
+    line-height: 150%;
+    color: #666666;
+}

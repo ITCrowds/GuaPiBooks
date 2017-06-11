@@ -1,14 +1,22 @@
 <!DOCTYPE html>
-<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>欢迎 · 瓜皮读书</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/style.css" rel="stylesheet "/>
+    <link href="/css/readerspace.css" rel="stylesheet"/>
 </head>
 <body>
-<h1>首页</h1>
+<nav th:replace="module/navbar :: navbar"></nav>
+
+<div>
+    <h1>首页</h1>
+</div>
 <div th:if="${isLogin == true}">
     <span th:text="'欢迎 ' + ${readerName}"></span>
     <p>这是个性推荐</p>
@@ -18,5 +26,11 @@
 <div th:if="${isLogin == false}">
     更多内容，请先<a href="/reader/readerspace">登录/书房</a>
 </div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

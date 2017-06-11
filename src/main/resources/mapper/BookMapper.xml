@@ -7,26 +7,26 @@
     <cache eviction="LRU" flushInterval="60000" readOnly="true"/>
 
     <resultMap id="book" type="com.itcrowds.guapibooks.domain.Book">
-        <id column="BOOK_ID" property="book_id" javaType="Integer"/>
-        <result column="BOOK_NAME" property="book_name" javaType="String"/>
-        <result column="BOOK_AUTHOR" property="book_author" javaType="String"/>
-        <result column="BOOK_ISBN" property="book_isbn" javaType="String"/>
-        <result column="BOOK_VIEWS" property="book_views" javaType="Integer"/>
-        <result column="BOOK_MARKS" property="book_marks" javaType="Integer"/>
-        <result column="BOOK_INTRODUCTION" property="book_introduction" javaType="String"/>
-        <result column="BOOK_PIC" property="book_pic" javaType="String"/>
+        <id column="BOOK_ID" property="bookId" javaType="Integer"/>
+        <result column="BOOK_NAME" property="bookName" javaType="String"/>
+        <result column="BOOK_AUTHOR" property="bookAuthor" javaType="String"/>
+        <result column="BOOK_ISBN" property="bookIsbn" javaType="String"/>
+        <result column="BOOK_VIEWS" property="bookViews" javaType="Integer"/>
+        <result column="BOOK_MARKS" property="bookMarks" javaType="Integer"/>
+        <result column="BOOK_INTRODUCTION" property="bookIntroduction" javaType="String"/>
+        <result column="BOOK_PIC" property="bookPic" javaType="String"/>
     </resultMap>
 
     <select id="getBookCount" resultType="int">
         SELECT count(BOOK_ID) FROM BOOK
     </select>
 
-    <select id="getBookByName" resultMap="book" resultType="reader">
-        SELECT * FROM BOOK WHERE BOOK_NAME = #{book_name}
+    <select id="getBookByName" resultMap="book" resultType="book">
+        SELECT * FROM BOOK WHERE BOOK_NAME = #{bookName}
     </select>
 
-    <select id="getBookById" resultMap="book" resultType="reader">
-        SELECT * FROM BOOK WHERE BOOK_ID = #{book_id}
+    <select id="getBookById" resultMap="book" resultType="book">
+        SELECT * FROM BOOK WHERE BOOK_ID = #{bookId}
     </select>
 
     <select id="getAllBookName" resultType="String">

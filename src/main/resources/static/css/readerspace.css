@@ -1,0 +1,225 @@
+
+.WB_frame_a, .WB_frame_a_fix, .WB_frame_b, .WB_frame_c, .WB_frame_d, .WB_main_l, .WB_main_c, .WB_main_r, .WB_main_cr, .WB_main_a, .WB_toptips {
+    display: inline-block;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+    font-size: 12px;
+}
+body{
+    padding: 70px;
+    margin:0;
+    padding-left: 0;
+    padding-right: 0px;
+}
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+.WB_cardwrap {
+    margin: 0 0 10px 0;
+    box-shadow: 0 0 2px rgba(0,0,0,0.2);
+    border-radius: 2px;
+}
+.S_bg2, blockquote, .W_btn_b, .W_input, .SW_fun_bg {
+    background-color: #fff;
+}
+
+.W_person_info {
+    height: 165px;
+    overflow: hidden;
+}
+
+.W_person_info .cover {
+    position: relative;
+    height: 75px;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.W_person_info .cover .headpic {
+    width: 60px;
+    height: 60px;
+    padding: 3px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    margin-left: -30px;
+}
+.W_face_radius {
+    border-radius: 50%;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+.W_person_info .WB_innerwrap {
+    padding: 16px 16px 9px 16px;
+}
+
+.W_person_info .nameBox {
+    height: 16px;
+    line-height: 16px;
+    padding-top: 5px;
+    text-align: center;
+}
+.W_person_info .nameBox .name, .W_person_info .nameBox .W_icon, .W_person_info .nameBox .W_icon_yy, .W_person_info .nameBox .W_icon_vipstyle, .W_person_info .nameBox .W_icon_co1 {
+    vertical-align: middle;
+}
+.W_person_info .nameBox .name {
+    max-width: 114px;
+    _width: 114px;
+    display: inline-block;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+body, legend, .W_input:focus, .S_txt1, .W_btn_b, .SW_fun .S_func1 {
+    color: #333;
+    text-decoration: none;
+}
+
+.icon_member_dis {
+    background-position: 0 -200px;
+}
+ber, .icon_member_dis, .icon_wedding {
+    width: 14px;
+    height: 14px;
+    vertical-align: -2px;
+    vertical-align: text-bottom\9;
+    margin-left: 3px;
+}
+
+.user_atten {
+    height: 34px;
+    overflow: hidden;
+    margin: 18px 0 0 18px;
+}
+
+.W_f18 {
+    font-size: 18px;
+}
+.clearfix {
+    display: block;
+}
+
+.clearfix {
+    display: inline-block;
+}
+.user_atten li {
+    float: left;
+    width: 65px;
+    text-align: center;
+    border-right-width: 1px;
+    border-right-style: solid;
+}
+.S_line1, .W_btn_prev, .W_btn_next, .W_btn_b {
+    border-color: #d9d9d9;
+}
+.user_atten li a {
+    display: block;
+}
+.user_atten li strong {
+    display: block;
+    font-weight: bold;
+    line-height: 18px;
+    width: 65px;
+    overflow: hidden;
+}
+.user_atten li .S_txt2 {
+    display: block;
+    font-size: 12px;
+}
+.S_txt2, .W_input, .W_btn_b_disable, .W_btn_b_disable:hover {
+    color: #808080;
+    text-decoration: none;
+}
+
+.WB_tab_a .tab_box {
+    width: 100%;
+    height: 38px;
+}
+
+.WB_tab_a .tab_box_a_r6 .tab {
+    width: 312px;
+}
+
+.WB_tab_a .tab_box_a .tab {
+    width: 300px;
+}
+
+.W_fl {
+    float: left;
+    _display: inline;
+}
+
+.WB_tab_a .tab_box_a_r6 .tab .li_first, .WB_tab_a .tab_box_a_r6 .tab .li_last {
+    width: 0;
+}
+
+.WB_tab_a .tab_box_a_r6 .tab li {
+    width: 52px;
+}
+
+.WB_tab_a .tab li.S_bg2, .WB_tab_a .tab li.curr .b .b1 em i {
+    box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+.WB_tab_a .tab li.curr {
+    box-shadow: none;
+    font-weight: bold;
+}
+
+.WB_tab_a .tab .t {
+    width: 100%;
+    height: 31px;
+    padding: 0 0 0 16px;
+    overflow: hidden;
+    line-height: 38px;
+}
+.WB_tab_a .tab .b {
+    position: relative;
+    height: 8px;
+    _height: 7px;
+    overflow: hidden;
+}
+
+.WB_tab_a .tab span {
+    display: block;
+}
+.WB_tab_a .tab_box_a_r6 .tab .b .W_arrow_bor {
+    padding: 0 0 0 25px;
+}
+.WB_tab_a .tab .b .W_arrow_bor i {
+    border-width: 9px;
+    border-top-width: 0;
+}
+
+.fl{
+    float: left;
+}
+
+.us-occupation {
+
+    height: 700px;
+}
+
+.section-board{
+    background-color: transparent;
+
+    border: 0 none;
+    border-radius: 1px;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+
+    box-sizing: border-box;
+}
+
+.shelf{
+    padding: 18px;
+}
