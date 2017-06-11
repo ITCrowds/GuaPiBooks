@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="zh" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport"
@@ -14,15 +14,79 @@
 <body>
 <nav th:replace="module/navbar :: navbar"></nav>
 
-<h1><a href="/" style="color: green; font: bold;">瓜皮读书</a>·书房</h1>
-<div>
-    <div>
-        欢迎用户: <span th:text="${reader}">Mingjing Chan</span>
-    </div>
-    <div>
-        <a href="/logout">登出/注销登录</a>
-    </div>
+<div class="container">
+    <div class="row">
+        <!--左边选项卡-->
+        <div class="col-xs-3 col-md-push-1">
+            <div id="v6_pl_rightmod_myinfo">
+                <div class="WB_cardwrap S_bg2">
+                    <div class="W_person_info">
+                        <div class="cover" id="skin_cover_s"
+                             style="background-image:url(http://img.t.sinajs.cn/t5/skin/public/profile_cover/001_s.jpg?version=666ef7e6699a0e36)">
+                            <div class="headpic"><a bpfilter="page_frame"
+                                                    href="/reader/info" title="Budience"><img
+                                    class="W_face_radius"
+                                    src="/image/avatar.png"
+                                    width="60" height="60"
+                                    alt="Budience"/></a></div>
+                        </div>
+                        <div class="WB_innerwrap">
+                            <div class="nameBox">
+                                <a bpfilter="page_frame" href="/reader/info"
+                                   class="name S_txt1" title="User_1">王小明</a>
 
+                            </div>
+                            <ul class="user_atten clearfix W_f18">
+                                <li class="S_line1">
+                                    <a bpfilter="page_frame"
+                                       href="/reader/following"
+                                       class="S_txt1">
+                                        <strong node-type="follow">255</strong>
+                                        <span class="S_txt2">关注</span>
+                                    </a>
+                                </li>
+                                <li class="S_line1">
+                                    <a bpfilter="page_frame"
+                                       href="/reader/followers" class="S_txt1">
+                                        <strong node-type="fans">65535</strong>
+                                        <span class="S_txt2">粉丝</span>
+                                    </a>
+                                </li>
+                                <li class="S_line1"><a bpfilter="page_frame"
+                                                       href="/reader/news"
+                                                       class="S_txt1">
+                                    <strong node-type="weibo">172</strong><span
+                                        class="S_txt2">动态</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="user-option sidebar">
+                <ul class="nav nav-sidebar">
+                    <li class="active"><a href="#">书单<span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">标签</a></li>
+                    <li><a href="#">好友</a></li>
+                    <li><a href="#">读书笔记</a></li>
+                    <li><a href="#">书评</a></li>
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div>
+    <h1><a href="/" style="color: green; font: bold;">瓜皮读书</a>·书房</h1>
+    <div>
+        <div>
+            欢迎用户: <span th:text="${reader}">Mingjing Chan</span>
+        </div>
+        <div>
+            <a href="/logout">登出/注销登录</a>
+        </div>
+    </div>
 </div>
 
 <!-- Bootstrap core JavaScript
