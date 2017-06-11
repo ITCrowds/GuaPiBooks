@@ -1,0 +1,366 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--link rel="icon" href=""-->
+
+    <title>以书会友</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="style/style.css" rel="stylesheet " />
+    <link href="style/book-info.css" rel="stylesheet" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<!--navbar-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">以书会友</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">主页</a></li>
+                <li><a href="gallery-1.html">百科</a></li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search" />
+                </div>
+                <button type="submit" class="btn btn-default">搜索</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="sign.html">注册</a></li>
+                <li><a href="sign_in.html">登录</a></li>
+                <li class="active">
+                    <a href="userspace.html">我</a><span class="sr-only">(current)</span>
+                        <span class="badge pull-right">42</span>
+                </li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-push-2">
+            <div class = "book-header">
+                <h2><span th:text="${book_name}">机器学习</span></h2>
+            </div>
+            <div id="content">
+                <div class="grid-16-8 clearfix">
+                    <div class="article">
+                        <div class="indent">
+                            <div class="subjectwrap clearfix">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="subject clearfix">
+                                            <div id="mainpic" class="">
+                                                <a class="nbg" href="https://img1.doubanio.com/lpic/s28735609.jpg" title="机器学习">
+                                                    <img src="https://img1.doubanio.com/lpic/s28735609.jpg" title="点击看大图" alt="机器学习" rel="v:photo" style="width: 107px" />
+                                                </a>
+                                            </div>
+                                            <div id="info" class="">
+                                                <span class="pl">作者:</span>&nbsp;
+                                                <a href="https://book.douban.com/search/周志华/">
+                                                    <span th:text="${book_author}"></span></a>
+                                                <br />
+                                                <span class="pl">ISBN:</span>
+                                                <span th:text="${book_isbn}"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="interest_sectl" class="col-md-3 col-md-push-5">
+                                        <div class="rating_wrap clearbox" rel="v:rating">
+                                            <div class="rating_logo">评分</div>
+                                            <div class="rating_self clearfix" typeof="v:Rating">
+                                                <strong class="ll rating_num " property="v:average"> 8.9 </strong>
+                                                <span property="v:best" content="10.0"></span>
+                                                <div class="rating_right ">
+                                                    <div class="rating_sum">
+                                                    <span class="">
+                                                        <a href="collections" class="rating_people">
+                                                            <span property="v:votes">583</span>人评价
+                                                        </a>
+                                                    </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <span class="stars5 starstop" title="力荐">5星</span>
+                                                <div class="power" style="width:64px"></div>
+                                                <span class="rating_per">56.6%</span>
+                                                <br />
+                                                <span class="stars4 starstop" title="推荐">4星</span>
+                                                <div class="power" style="width:35px"></div>
+                                                <span class="rating_per">31.6%</span>
+                                                <br />
+                                                <span class="stars3 starstop" title="还行">3星</span>
+                                                <div class="power" style="width:10px"></div>
+                                                <span class="rating_per">9.4%</span>
+                                                <br />
+                                                <span class="stars2 starstop" title="较差">2星</span>
+                                                <div class="power" style="width:1px"></div>
+                                                <span class="rating_per">1.5%</span>
+                                                <br />
+                                                <span class="stars1 starstop" title="很差">1星</span>
+                                                <div class="power" style="width:0px"></div>
+                                                <span class="rating_per">0.9%</span>
+                                                <br />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="interest_sect_level" class="clearfix">
+                                <a href="#" rel="nofollow" class="j a_show_login colbutt ll" name="pbtn-26708119-wish">
+                                    <span>
+                                        <form method="POST" action="https://www.douban.com/register?reason=collectwish" class="miniform">
+                                            <input type="submit" class="minisubmit j " value="想读" title="" />
+                                        </form>
+                                    </span>
+                                </a>
+                                <a href="#" rel="nofollow" class="j a_show_login colbutt ll" name="pbtn-26708119-do">
+                                    <span>
+                                        <form method="POST" action="https://www.douban.com/register?reason=collectdo" class="miniform">
+                                            <input type="submit" class="minisubmit j " value="在读" title="" />
+                                        </form>
+                                    </span>
+                                </a>
+                                <a href="#" rel="nofollow" class="j a_show_login colbutt ll" name="pbtn-26708119-collect">
+                                    <span>
+                                        <form method="POST" action="https://www.douban.com/register?reason=collectcollect" class="miniform">
+                                            <input type="submit" class="minisubmit j " value="读过" title="" />
+                                        </form>
+                                    </span>
+                                </a>
+                                <div class="ll j a_stars">
+                                    评价:
+                                    <span id="rating"> <span id="stars" data-solid="https://img3.doubanio.com/f/shire/5a2327c04c0c231bced131ddf3f4467eb80c1c86/pics/rating_icons/star_onmouseover.png" data-hollow="https://img3.doubanio.com/f/shire/2520c01967207a1735171056ec588c8c1257e5f8/pics/rating_icons/star_hollow_hover.png" data-solid-2x="https://img3.doubanio.com/f/shire/7258904022439076d57303c3b06ad195bf1dc41a/pics/rating_icons/star_onmouseover@2x.png" data-hollow-2x="https://img3.doubanio.com/f/shire/95cc2fa733221bb8edd28ad56a7145a5ad33383e/pics/rating_icons/star_hollow_hover@2x.png">
+
+            <a href="https://www.douban.com/register?reason=rate" class="j a_show_login" name="pbtn-26708119-1">
+        <img src="https://img3.doubanio.com/f/shire/2520c01967207a1735171056ec588c8c1257e5f8/pics/rating_icons/star_hollow_hover.png" id="star1" width="16" height="16" /></a>
+            <a href="https://www.douban.com/register?reason=rate" class="j a_show_login" name="pbtn-26708119-2">
+        <img src="https://img3.doubanio.com/f/shire/2520c01967207a1735171056ec588c8c1257e5f8/pics/rating_icons/star_hollow_hover.png" id="star2" width="16" height="16" /></a>
+            <a href="https://www.douban.com/register?reason=rate" class="j a_show_login" name="pbtn-26708119-3">
+        <img src="https://img3.doubanio.com/f/shire/2520c01967207a1735171056ec588c8c1257e5f8/pics/rating_icons/star_hollow_hover.png" id="star3" width="16" height="16" /></a>
+            <a href="https://www.douban.com/register?reason=rate" class="j a_show_login" name="pbtn-26708119-4">
+        <img src="https://img3.doubanio.com/f/shire/2520c01967207a1735171056ec588c8c1257e5f8/pics/rating_icons/star_hollow_hover.png" id="star4" width="16" height="16" /></a>
+            <a href="https://www.douban.com/register?reason=rate" class="j a_show_login" name="pbtn-26708119-5">
+        <img src="https://img3.doubanio.com/f/shire/2520c01967207a1735171056ec588c8c1257e5f8/pics/rating_icons/star_hollow_hover.png" id="star5" width="16" height="16" /></a>
+    </span><span id="rateword" class="pl"></span>
+    <input id="n_rating" type="hidden" value="" />
+    </span>
+                          </div>
+                            </div>
+                            <div class="gtleft">
+                                <ul class="ul_subject_menu bicelink color_gray pt6 clearfix">
+                                    <li>
+                                        <img src="https://img3.doubanio.com/f/shire/5bbf02b7b5ec12b23e214a580b6f9e481108488c/pics/add-review.gif" />&nbsp;<a href="https://www.douban.com/register?reason=annotate" class="j a_show_login" rel="nofollow">写笔记</a>
+                                    </li>
+                                    <li>
+                                        <img src="https://img3.doubanio.com/f/shire/5bbf02b7b5ec12b23e214a580b6f9e481108488c/pics/add-review.gif" />&nbsp;<a class="j a_show_login" href="https://www.douban.com/register?reason=review" rel="nofollow">写书评</a>
+                                    </li>
+                                    <!--<script>-->
+                                        <!--var __cache_url = __cache_url || {};-->
+                                        <!--(function(u){-->
+                                            <!--if(__cache_url[u]) return;-->
+                                            <!--__cache_url[u] = true;-->
+                                            <!--window.DoubanShareIcons = 'https://img3.doubanio.com/f/shire/d15ffd71f3f10a7210448fec5a68eaec66e7f7d0/pics/ic_shares.png';-->
+                                            <!--var initShareButton = function() {-->
+                                                <!--$.ajax({url:u,dataType:'script',cache:true});-->
+                                            <!--};-->
+                                            <!--if (typeof Do == 'function' && 'ready' in Do) {-->
+                                                <!--Do('https://img3.doubanio.com/f/shire/8377b9498330a2e6f056d863987cc7a37eb4d486/css/ui/dialog.css',-->
+                                                    <!--'https://img3.doubanio.com/f/shire/3d185ca912c999ee7f464749201139ebf8eb6972/js/ui/dialog.js',-->
+                                                    <!--initShareButton);-->
+                                            <!--} else if(typeof Douban == 'object' && 'loader' in Douban) {-->
+                                                <!--Douban.loader.batch(-->
+                                                    <!--'https://img3.doubanio.com/f/shire/8377b9498330a2e6f056d863987cc7a37eb4d486/css/ui/dialog.css',-->
+                                                    <!--'https://img3.doubanio.com/f/shire/3d185ca912c999ee7f464749201139ebf8eb6972/js/ui/dialog.js'-->
+                                                <!--).done(initShareButton);-->
+                                            <!--}-->
+                                        <!--})('https://img3.doubanio.com/f/shire/6e6a5f21daeec19bbb41bf48c07fccaa4dad4d98/js/lib/sharebutton.js');-->
+                                    <!--</script>-->
+                                </ul>
+                            </div>
+                            <script>
+                                //bind events for collection button.
+                                $('.collect_btn', '#interest_sect_level').each(function(){
+                                    Douban.init_collect_btn(this);
+                                });
+                            </script>
+                        </div>
+                        <br clear="all" />
+                        <div id="collect_form_26708119"></div>
+                        <div class="related_info">
+                            <h2>
+                                <span class="">内容简介</span>
+                                &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·
+                            </h2>
+                            <div class="indent" id="link-report">
+                                <span class="short">
+                                    <div class="intro">
+                                        <p>机器学习是计算机科学与人工智能的重要分支领域. 本书作为该领域的入门教材，在内容上尽可能涵盖机器学习基础知识的各方面。 为了使尽可能多的读者通过本书对机器学习有所了解, 作者试图尽可能少地使用数学知识. 然而, 少量的概率、统计、代数、优化、逻辑知识似乎不可避免. 因此, 本书更适合大学三年级以上的理工科本科生和研究生, 以及具有类似背景的对机器学 习感兴趣的人士. 为方便读者, 本书附录给出了一些相关数学基础知识简介.</p>    <p>全书共16 章，大致分为3 个部分：第1 部分（第1～3 章）介绍机器学习的基础知识；第2 部分（第4～10 章）讨论一些经典而常用的机器学习方法（决策树、神经网络、支持向量机、贝叶斯分类器、集成学习、聚类、降维与度量学习）；第3 部分（第11～16 章）为进阶知识，内容涉及特征选择与稀疏学习、计算学习理论、半监督学习、概率图模型、...</p><p><a href="javascript:void(0)" class="j a_show_full">(展开全部)</a></p></div></span>
+                                <span class="all hidden">
+                                    <div class="">
+                                        <div class="intro">
+                                            <p>机器学习是计算机科学与人工智能的重要分支领域. 本书作为该领域的入门教材，在内容上尽可能涵盖机器学习基础知识的各方面。 为了使尽可能多的读者通过本书对机器学习有所了解, 作者试图尽可能少地使用数学知识. 然而, 少量的概率、统计、代数、优化、逻辑知识似乎不可避免. 因此, 本书更适合大学三年级以上的理工科本科生和研究生, 以及具有类似背景的对机器学 习感兴趣的人士. 为方便读者, 本书附录给出了一些相关数学基础知识简介.</p>    <p>全书共16 章，大致分为3 个部分：第1 部分（第1～3 章）介绍机器学习的基础知识；第2 部分（第4～10 章）讨论一些经典而常用的机器学习方法（决策树、神经网络、支持向量机、贝叶斯分类器、集成学习、聚类、降维与度量学习）；第3 部分（第11～16 章）为进阶知识，内容涉及特征选择与稀疏学习、计算学习理论、半监督学习、概率图模型、规则学习以及强化学习等.前3章之外的后续各章均相对独立, 读者可根据自己的兴趣和时间情况选择使用. 根据课时情况, 一个学期的本科生课程可考虑讲授前9章或前10章; 研究生课程则不妨使用全书.</p>    <p>书中除第1章外, 每章都给出了十道习题. 有的习题是帮助读者巩固本章学习, 有的是为了引导读者扩展相关知识. 一学期的一般课程可使用这些习题, 再辅以两到三个针对具体数据集的大作业. 带星号的习题则有相当难度, 有些并无现成答案, 谨供富有进取心的读者启发思考.</p>
+                                            <p>本书可作为高等院校计算机、自动化及相关专业的本科生或研究生教材，也可供对机器学习感兴趣的研究人员和工程技术人员阅读参考。</p>
+                                        </div>
+                                    </div>
+                                </span>
+                            </div>
+                            <section class="reviews mod book-content">
+                                <header>
+                                    <a href="new_review" rel="nofollow" class="redbutt rr">
+                                        <span>我要写书评</span>
+                                    </a>
+                                    <h2>
+                                        机器学习的书评
+                                        <span class="pl">(<a href="reviews">全部 1 条</a>)</span>
+                                    </h2>
+                                </header>
+                                <div class="review-list">
+                                    <div xmlns:v="http://rdf.data-vocabulary.org/#" typeof="v:Review">
+                                        <div class="main review-item" id="7762499">
+                                            <header class="main-hd">
+                                                <h3 class="title">
+                                                    <a href="https://book.douban.com/review/7762499/" class="title-link">教材书籍</a>
+                                                    <div class="toggle_review right">        <a href="javascript:;" id="toggle-7762499" class="indicator unfold j" title="展开全文">        </a>
+                                                    </div>
+                                                </h3>
+                                                <div class="header-more">
+                                                    <a class="author-avatar" href="https://www.douban.com/people/126379976/"><img width="48" height="48" src="https://img3.doubanio.com/icon/u126379976-1.jpg" /></a>
+                                                    <a href="https://www.douban.com/people/126379976/" class="author">
+                                                        <span property="v:reviewer">SCUT-苏东</span>
+                                                    </a>
+                                                    <span property="v:rating" class="allstar50 main-title-rating" title="力荐"></span>
+                                                    <span property="v:dtreviewed" content="2016-02-06" class="main-meta">2016-02-06 08:03:23</span>
+                                                </div>
+                                            </header>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <div class="ugc-mod reading-notes">
+                                <div class="hd">
+                                    <h2>
+                                        读书笔记
+                                        <span class="pl">(<a href="https://book.douban.com/subject/26708119/annotation">共<span property="v:count">6</span>篇</a>)</span>
+                                    </h2>
+                                    <a class="redbutt rr j a_show_login" href="https://www.douban.com/register?reason=annotate" rel="nofollow"><span>我来写笔记</span></a>
+                                </div>
+                                <div class="bd">
+                                    <ul class="inline-tabs">
+                                        <li class="on"><a href="#rank" id="by_rank">按有用程度</a></li>
+                                        <li><a href="#page" id="by_page">按页码先后</a></li>
+                                        <li><a href="#time" id="by_time">最新笔记</a></li>
+                                    </ul>
+                                    <ul class="comments by_rank">
+                                        <li class="ctsh clearfix" data-cid="43823056">
+                                            <div class="ilst">
+                                                <a href="https://www.douban.com/people/bitren_reader/"><img src="https://img1.doubanio.com/icon/user_normal.jpg" alt="bitren豪" class="" /></a>
+                                            </div>
+                                            <div class="con">
+                                                <div class="nlst">
+                                                    <h3>
+                                                        <div class="note-toggle rr">
+                                                            <a href="https://book.douban.com/annotation/43823056/" class="note-unfolder">展开</a>
+                                                            <a href="javascript:void(0);" class="note-folder">收起</a>
+                                                        </div>
+                                                        <a href="https://book.douban.com/annotation/43823056/" class="">第1页</a></h3>
+                                                </div>
+                                                <div class="clst">
+                                                    <p class="user"><a href="https://www.douban.com/people/bitren_reader/" class=" " title="bitren豪">bitren豪</a>
+                                                    </p>
+                                                    <div class="reading-note" data-cid="43823056">
+                                                        <div class="short">
+                                                            <span class="">1.1引言 我们把经验数据（训练集）提供给 “学习算法”，就能产生模型。在面对新的情况时，模型会给我们提供相应的判断。 机器学习是研究关于 “学习算法（learning algorithms）” 的学问。 1.2 基本术语 从数据中学得模型的过程称为 “学习”或 “训练”，这个过程通过执行某个学习算法来完成。 “学得模型” 对应了关于数据的某种潜在规律， 因此亦称为 “假设”；这种潜在规律自身，称为“真相” 或 “真实” （ground-trut...</span>
+                                                            <p class="pl">
+                                                                <span class="">2017-05-10 15:36</span>
+                                                            </p>
+                                                        </div>
+                                                        <div class="all hidden" style="display:none">
+                                                            <p>1.1引言</p><p>我们把经验数据（训练集）提供给 “学习算法”，就能产生模型。在面对新的情况时，模型会给我们提供相应的判断。</p><p>机器学习是研究关于 “学习算法（learning algorithms）” 的学问。</p><p>1.2 基本术语</p><p>从数据中学得模型的过程称为 “学习”或 “训练”，这个过程通过执行某个学习算法来完成。</p><p>“学得模型” 对应了关于数据的某种潜在规律， 因此亦称为 “假设”；这种潜在规律自身，称为“真相” 或 “真实” （ground-truth）, 学习过程就是为了找出或逼近真相。</p><p>模型，可看作学习算法在给定数据和参数空间上的实例化。</p><p>“属性空间” 和 “标记空间” 。</p><p>机器学习的目标： 使学得的模型很好地适用于 “新样本”， 而不仅仅在训练样本上工作地很好。</p><p>学得模型适用于新样本的能力，称为 “泛化” 能力。具有强泛化能力的模型能很好地适用于整个样本空间。</p><p>通常假设样本空间中全体样本服从一个 “未知分布” D， 我们获得的每个样本都是 i.i.d. 的。</p><p>1。3  假设空间</p><p>归纳：从特殊到一般的泛化过程，即从具体的事实归结出一般性的规律。</p><p>学习过程： 可以看作一个在所有 “假设” 组成的空间中进行搜索的过程，搜索目标是找到与训练集匹配的假设，既能够将训练集中的瓜判断正确的假设。</p><p>假设的表示一旦确定，假设空间及其规模大小就确定了。</p><p>1。4 归纳偏好</p><p>机器学习算法在学习过程中对某种类型假设的偏好，称为 “归纳偏好”，简称为 “偏好”。</p><p>任何一个有效的机器学习算法必有其归纳偏好，否则无法产生确定的学习结果。</p><p>“奥卡姆剃刀”原则：若有多个假设与观察一致，则选最简单的那个。</p><p>若学习算法 a 在某些问题上比算法 b 好， 则必然存在一些问题，在那里 b比 a 好。这个结论对任何算法均成立。</p><p>“没有免费的午餐”定理：NFL定理告诉我们，脱离具体问题，空泛地谈论 “什么学习算法更好”毫无意义。要讨论算法的相对优劣，必须要针对具体的学习问题。</p><p>____________________________________________________________________________</p><p>1.5 发展历程</p><p></p><p></p><p></p>
+                                                            <div class="col-rec-con clearfix">
+                                                                <div class="rec-sec">
+                                                                     <span class="rec">
+                                                                         <a href="https://www.douban.com/accounts/register?reason=collect" class="j a_show_login lnk-sharing lnk-douban-sharing">推荐</a>
+                                                                     </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="pl col-time">
+                                                                <a href="https://book.douban.com/annotation/43823056/#comments">回应</a>&nbsp;&nbsp;
+                                                                2017-05-10 15:36
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <ul class="comments by_page" style="display: none">
+                                            <li class="ctsh clearfix" data-cid="42282861">
+                                                <div class="ilst">
+                                                <a href="https://www.douban.com/people/DaoOfBook/"><img src="https://img3.doubanio.com/icon/u45241845-2.jpg" alt="步之道" class="" /></a>
+                                            </div>
+                                                <div class="con">
+                                                <div class="nlst">
+                                                    <h3>
+                                                        <div class="note-toggle rr">
+                                                            <a href="https://book.douban.com/annotation/42282861/" class="note-unfolder">展开</a>
+                                                            <a href="javascript:void(0);" class="note-folder">收起</a>
+                                                        </div>
+                                                        <a href="https://book.douban.com/annotation/42282861/" class="">第7页</a>
+                                                    </h3>
+                                                </div>
+                                                <div class="clst">
+                                                    <p class="user"><a href="https://www.douban.com/people/DaoOfBook/" class=" " title="步之道">步之道</a>
+                                                        (知道我叫啥吗？步之道就对了！)
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            </li>
+                                        </ul>
+                                    <ul class="comments by_time" style="display: none">
+                                    </ul>
+                                </div>
+                                <div class="ft">
+                                    <p class="trr">&gt; <a href="https://book.douban.com/subject/26708119/annotation">更多读书笔记（共6篇）</a></p>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

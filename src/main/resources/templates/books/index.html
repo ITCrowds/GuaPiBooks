@@ -13,6 +13,7 @@
     <span th:text="'欢迎 ' + ${readerName}"></span>
     <p>这是个性推荐</p>
     <a href="/reader/readerspace">书房</a>
+    <a th:href="@{/book/info/{id}(id = 1)}">机器学习</a>
 </div>
 <div th:if="${isLogin == false}">
     更多内容，请先<a href="/reader/readerspace">登录/书房</a>
