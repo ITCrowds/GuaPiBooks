@@ -28,7 +28,7 @@ mvnw.cmd
 #pom.xml
 #src/
 
-
+.DS_Store
 
 *.class
 
