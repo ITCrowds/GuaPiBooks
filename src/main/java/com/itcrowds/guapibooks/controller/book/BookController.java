@@ -34,5 +34,13 @@ public class BookController {
         model.addAttribute("reviewList",reviews);
         return "books/bookinfo";
     }
+
+    @RequestMapping("/gallery")
+    public String  galleryPage(Model model){
+        navigationBar.setNavigationBar(model);
+        List<Book> books = bookService.getAllBooks();
+        model.addAttribute("bookList",books);
+        return "books/gallery";
+    }
 }
 

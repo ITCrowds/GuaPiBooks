@@ -24,9 +24,14 @@ public class ReaderController {
     @RequestMapping("/readerspace")
     public String readerSpacePage(Model model, HttpServletRequest request){
         Reader reader = (Reader) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("reader", reader.getName());
+        model.addAttribute("readerName", reader.getName());
 
         navigationBar.setNavigationBar(model);
         return "reader/readerSpace";
+    }
+
+    @RequestMapping("/testspace")
+    public String testspace() {
+        return "reader/userspace";
     }
 }

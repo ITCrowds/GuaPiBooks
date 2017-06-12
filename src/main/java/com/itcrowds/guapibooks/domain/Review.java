@@ -1,5 +1,8 @@
 package com.itcrowds.guapibooks.domain;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("review")
 public class Review {
     private int reviewId;
     private int bookId;

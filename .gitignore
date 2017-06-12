@@ -55,5 +55,6 @@ mvn*
 #*.iml
 out/
 src/main/resources/db/*.trace.db
+src/main/resources/db/*.lock.db
 
 node_modules

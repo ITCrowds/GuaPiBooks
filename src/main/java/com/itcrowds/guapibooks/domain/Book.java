@@ -1,10 +1,10 @@
 package com.itcrowds.guapibooks.domain;
 
+import org.apache.ibatis.type.Alias;
+
 import java.util.List;
 
-/**
- * Created by user on 2017/5/25.
- */
+@Alias("book")
 public class Book {
     private Integer bookId;
     private String bookName;
