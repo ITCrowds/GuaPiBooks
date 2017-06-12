@@ -1,6 +1,7 @@
 package com.itcrowds.guapibooks.domain;
 
 
+import org.apache.ibatis.type.Alias;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+@Alias("reader")
 public class Reader implements UserDetails {
 
     private Integer id;
