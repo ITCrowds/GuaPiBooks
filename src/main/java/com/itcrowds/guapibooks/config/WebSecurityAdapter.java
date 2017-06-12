@@ -26,6 +26,9 @@ public class WebSecurityAdapter extends WebSecurityConfigurerAdapter {
         // 防止csrf 攻击
         http.csrf().disable();
 
+        // 允许相同域名下使用frame
+        http.headers().frameOptions().sameOrigin();
+
         http.authorizeRequests()
                 // 不需要验证的页面
                 .antMatchers("/","/books/**", "/login/**", "/login/auth")

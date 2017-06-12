@@ -34,4 +34,29 @@ public class ReaderController {
     public String testspace() {
         return "reader/userspace";
     }
+
+    @RequestMapping("bookList")
+    public String bookList(Model model) {
+        return "reader/bookList";
+    }
+
+    @RequestMapping("/bookNote")
+    public String bookNote(Model model) {
+        return "reader/bookNote";
+    }
+
+    @RequestMapping("bookReview")
+    public String bookReview(Model model) {
+        return "reader/bookReview";
+    }
+
+    @RequestMapping("bookTag")
+    public String bookTag(Model model) {
+        return "reader/bookTag";
+    }
+
+    @RequestMapping("friend")
+    public String friend(Model model) {
+        return "reader/friend";
+    }
 }
