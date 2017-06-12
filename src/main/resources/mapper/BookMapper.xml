@@ -32,4 +32,8 @@
     <select id="getAllBookName" resultType="String">
         SELECT BOOK_NAME FROM BOOK
     </select>
+
+    <select id="getAllBook" resultMap="book" resultType="book">
+        SELECT * FROM BOOK ORDER BY BOOK_MARKS LIMIT 0,3
+    </select>
 </mapper>

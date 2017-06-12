@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--link rel="icon" href=""-->
+
+    <title>以书会友</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/css/style.css" rel="stylesheet "/>
+</head>
+
+<body>
+<!--navbar-->
+<nav th:replace="module/navbar :: navbar"></nav>
+<div class="main-index">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="letter">百科2</div>
+            <div class="letter">A</div>
+            <div class="letter">A</div>
+            <div class="letter">A</div>
+            <div class="letter">书签</div>
+            <div class="letter">用户</div>
+        </div>
+        <div class="col-md-push-8">
+            <div class="letter">排行榜</div>
+            <tr th:each="book:${bookList}">
+                <td th:text="${bookStat.count}">
+                </td>
+                <td th:text="${book.bookName}">
+                </td>
+                <td th:text="${book.bookViews}">
+                </td>
+                <td th:text="${book.bookMarks}">
+                </td>
+                <br />
+                <td>
+                    <img th:src="${book.bookPic}" width="106px" height="158px" th:alt="${book.bookName}" />
+                </td>
+                <br />
+            </tr>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -18,4 +18,6 @@ public interface BookMapper {
     Book getBookByName(@Param("bookName") String bookName);
 
     Book getBookById(@Param("bookId") int bookId);
+
+    List<Book> getAllBook();
 }

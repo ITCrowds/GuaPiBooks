@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Collection;
+import java.util.List;
 
 @Service
 public class BookServiceImpl implements BookService{
@@ -19,4 +20,8 @@ public class BookServiceImpl implements BookService{
         return bookMapper.getBookById(bookId);
     }
 
+    @Override
+    public List<Book> getAllBooks(){
+        return bookMapper.getAllBook();
+    }
 }
