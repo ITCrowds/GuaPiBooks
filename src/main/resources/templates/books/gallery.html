@@ -12,42 +12,55 @@
     <title>以书会友</title>
     <!-- Bootstrap core CSS -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="/css/style.css" rel="stylesheet "/>
+    <link href="/css/gallery.css" rel="stylesheet "/>
 </head>
 
 <body>
 <!--navbar-->
 <nav th:replace="module/navbar :: navbar"></nav>
-<div class="main-index">
+<div class="container">
     <div class="row">
-        <div class="col-md-8">
-            <div class="letter">百科2</div>
-            <div class="letter">A</div>
-            <div class="letter">A</div>
-            <div class="letter">A</div>
-            <div class="letter">书签</div>
-            <div class="letter">用户</div>
+        <div class="col-md-8 col-md-push-1 mainblock">
+            <div class="pagetitle">
+                <h2>书籍百科</h2>
+                <hr/>
+            </div>
+            <ul class="booklist">
+                <li class="item" th:each="book:${bookList}">
+                    <div class="cover">
+                        <a class="cover" href="https://book.douban.com/subject/27003599/?icn=index-editionrecommend">
+                            <img th:src="${book.bookPic}" alt="image loading..." width="106px" height="158px" />
+                        </a>
+                    </div>
+                    <div class = "info">
+                        <a class="title" href="skip url same to the last one" th:text="${book.bookName}"></a>
+                    </div>
+                    <div class = "author" th:text="${book.bookAuthor}">
+                    </div>
+                </li>
+            </ul>
+
         </div>
-        <div class="col-md-push-8">
-            <div class="letter">排行榜</div>
-            <tr th:each="book:${bookList}">
-                <td th:text="${bookStat.count}">
-                </td>
-                <td th:text="${book.bookName}">
-                </td>
-                <td th:text="${book.bookViews}">
-                </td>
-                <td th:text="${book.bookMarks}">
-                </td>
-                <br />
-                <td>
-                    <img th:src="${book.bookPic}" width="106px" height="158px" th:alt="${book.bookName}" />
-                </td>
-                <br />
-            </tr>
+        <div class="col-md-2 col-md-push-1 mainblock">
+            <div class="pagetitle">
+                <h2>排行榜</h2>
+                <hr/>
+            </div>
+            <div>
+                <ul class="rankinglist" th:each="book:${bookList}">
+                    <li class="rankitem">
+                        <span class="ranknum" th:text="${bookStat.count}"></span>
+                        <div class="bookinfo">
+                            <a href="book info url" th:text="${book.bookName}"></a>
+                            <div class="author" th:text="${book.bookAuthor}"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
+
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

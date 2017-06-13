@@ -7,9 +7,6 @@ import org.apache.ibatis.annotations.Param;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * Created by user on 2017/5/25.
- */
 public interface BookMapper {
     int getBookCount();
 

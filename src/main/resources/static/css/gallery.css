@@ -1,0 +1,66 @@
+
+
+.item{
+    width: 106px;
+    overflow: hidden;
+
+}
+
+
+.booklist li{
+    float: left;
+    margin: 10px 15px;
+    white-space: nowrap;
+}
+
+.mainblock{
+
+    border-radius: 1px;
+    border-color: rgb(0, 0, 0);
+    border: 1px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+    margin: 20px 15px;
+    padding:20px 0;
+
+
+}
+.pagetitle{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.ranknum{
+    width: 20px;
+    float: left;
+    font-size: 14px;
+}
+.rankinglist{
+    padding: 10px 15px;
+}
+.rankinglist li{
+    font-size: 13px;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-bottom: 10px;
+
+}
+
+ul{
+    list-style: none;
+
+}
+
+.bookinfo{
+    display: block;
+}
+
+.rankinglist .author{
+    font-size: 12px;
+    margin-left: 20px;
+}
+
+.rankitem{
+    margin: 0;
+    margin: 0;
+    padding: 0;
+}
