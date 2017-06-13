@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="zh" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport"
@@ -11,6 +11,7 @@
     <link href="/css/style.css" rel="stylesheet "/>
     <link href="/css/readerspace.css" rel="stylesheet"/>
 </head>
+
 <body>
 <nav th:replace="module/navbar :: navbar"></nav>
 
@@ -26,7 +27,7 @@
                             <div class="headpic"><a bpfilter="page_frame"
                                                     href="/reader/info" title="Budience"><img
                                     class="W_face_radius"
-                                    src="/image/avatar.png"
+                                    src="http://tva3.sinaimg.cn/crop.153.82.383.383.180/b1fe14bajw8ezmgsly4jaj20j60f9ael.jpg"
                                     width="60" height="60"
                                     alt="Budience"/></a></div>
                         </div>
@@ -64,35 +65,56 @@
             </div>
             <div class="user-option sidebar">
                 <ul class="nav nav-sidebar">
-                    <li class="active"><a href="#">书单<span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">标签</a></li>
-                    <li><a href="#">好友</a></li>
-                    <li><a href="#">读书笔记</a></li>
-                    <li><a href="#">书评</a></li>
+                    <li class="active"><a href="/reader/bookList" target="_iframe">阅读</a></li>
+                    <li><a href="/reader/bookTag" target="_iframe">书单</a></li>
+                    <li><a href="/reader/bookTag" target="_iframe">标签</a></li>
+                    <li><a href="/reader/friend" target="_iframe">好友</a></li>
+                    <li><a href="/reader/bookNote" target="_iframe">读书笔记</a></li>
+                    <li><a href="/reader/bookReview" target="_iframe">书评</a></li>
                 </ul>
 
             </div>
         </div>
 
+        <div class="col-xs-7 col-md-push-1">
+            <iframe src="/reader/bookList" name="_iframe" frameborder="0"
+                    width="100%" height="100%" scrolling="no" onload="setIframeHeight(this)"></iframe>
+        </div>
+
     </div>
 </div>
 
-<div>
-    <h1><a href="/" style="color: green; font: bold;">瓜皮读书</a>·书房</h1>
-    <div>
-        <div>
-            欢迎用户: <span th:text="${reader}">Mingjing Chan</span>
-        </div>
-        <div>
-            <a href="/logout">登出/注销登录</a>
-        </div>
-    </div>
-</div>
+
+<!--<div>-->
+    <!--<h1><a href="/" style="color: green; font: bold;">瓜皮读书</a>·书房</h1>-->
+    <!--<div>-->
+        <!--<div>-->
+            <!--欢迎用户: <span th:text="${reader}">Mingjing Chan</span>-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<a href="/logout">登出/注销登录</a>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- iframe自适应高度-->
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    function setIframeHeight(iframe) {
+        if (iframe) {
+            var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+            if (iframeWin.document.body) {
+                iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+            }
+        }
+    }
+    /*]]>*/
+</script>
 </body>
 </html>
