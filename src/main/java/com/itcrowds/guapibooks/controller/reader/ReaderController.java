@@ -3,8 +3,8 @@ package com.itcrowds.guapibooks.controller.reader;
 import com.itcrowds.guapibooks.controller.navigationBar.NavigationBar;
 import com.itcrowds.guapibooks.domain.Reader;
 import com.itcrowds.guapibooks.service.ReaderService;
+import com.itcrowds.guapibooks.util.ReaderLoggingStatusHelper;
 
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("/reader")
 public class ReaderController {
+    @Resource
+    private ReaderLoggingStatusHelper readerLoggingStatusHelper;
 
     @Resource
     private NavigationBar navigationBar;
@@ -27,7 +29,7 @@ public class ReaderController {
      */
     @RequestMapping("/readerspace")
     public String readerSpacePage(Model model, HttpServletRequest request){
-        Reader reader = (Reader) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Reader reader = readerLoggingStatusHelper.getLoginReader();
         model.addAttribute("reader", reader);
 
         navigationBar.setNavigationBar(model);
@@ -36,7 +38,7 @@ public class ReaderController {
 
     @RequestMapping("readState")
     public String bookState(Model model) {
-        Reader reader = (Reader) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Reader reader = readerLoggingStatusHelper.getLoginReader();
         model.addAttribute("readingBooks", readerService.getBookListByReaderAndReadingState(reader.getId(), Reader.READING));
         model.addAttribute("toReadBooks", readerService.getBookListByReaderAndReadingState(reader.getId(), Reader.TOREAD));
         model.addAttribute("readedBooks", readerService.getBookListByReaderAndReadingState(reader.getId(), Reader.READED));
