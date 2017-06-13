@@ -5,7 +5,7 @@ import com.itcrowds.guapibooks.domain.Book;
 import com.itcrowds.guapibooks.domain.Review;
 import com.itcrowds.guapibooks.service.BookService;
 import com.itcrowds.guapibooks.service.ReviewService;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,16 +13,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 @Controller
 @RequestMapping("/book")
 public class BookController {
-    @Autowired
+    @Resource
     private NavigationBar navigationBar;
 
-    @Autowired
+    @Resource
     private BookService bookService;
 
-    @Autowired
+    @Resource
     private ReviewService reviewService;
 
     @RequestMapping("/info/{id}")

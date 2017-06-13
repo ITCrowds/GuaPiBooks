@@ -33,4 +33,7 @@
         SELECT READER_NAME FROM READER
     </select>
 
+    <select id="getBookIDListByReaderAndReadingState" resultType="int">
+        SELECT BOOK_ID FROM READER_BOOK WHERE READER_ID = #{id} AND REDAER_BOOK_STATUS = #{state}
+    </select>
 </mapper>

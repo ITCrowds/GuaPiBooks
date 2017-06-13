@@ -223,3 +223,7 @@ ber, .icon_member_dis, .icon_wedding {
 .shelf{
     padding: 18px;
 }
+
+#read, #to-read {
+    display: none;
+}

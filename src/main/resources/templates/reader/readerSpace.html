@@ -19,6 +19,7 @@
     <div class="row">
         <!--左边选项卡-->
         <div class="col-xs-3 col-md-push-1">
+            <!--上部用户头像+简要信息-->
             <div id="v6_pl_rightmod_myinfo">
                 <div class="WB_cardwrap S_bg2">
                     <div class="W_person_info">
@@ -34,7 +35,7 @@
                         <div class="WB_innerwrap">
                             <div class="nameBox">
                                 <a bpfilter="page_frame" href="/reader/info"
-                                   class="name S_txt1" title="User_1">王小明</a>
+                                   class="name S_txt1" title="User_1" th:text="${reader.Name}">王小明</a>
 
                             </div>
                             <ul class="user_atten clearfix W_f18">
@@ -63,22 +64,22 @@
                     </div>
                 </div>
             </div>
+            <!--下部选项卡-->
             <div class="user-option sidebar">
                 <ul class="nav nav-sidebar">
-                    <li class="active"><a href="/reader/bookList" target="_iframe">阅读</a></li>
-                    <li><a href="/reader/bookTag" target="_iframe">书单</a></li>
-                    <li><a href="/reader/bookTag" target="_iframe">标签</a></li>
-                    <li><a href="/reader/friend" target="_iframe">好友</a></li>
-                    <li><a href="/reader/bookNote" target="_iframe">读书笔记</a></li>
-                    <li><a href="/reader/bookReview" target="_iframe">书评</a></li>
+                    <li onclick="loadHtmlPart('/reader/readState', 'contentPart');" class="active"><a href="#">阅读状态</a></li>
+                    <li onclick="loadHtmlPart('/reader/bookList', 'contentPart');"><a href="#">书单</a></li>
+                    <li onclick="loadHtmlPart('/reader/bookTag', 'contentPart');"><a href="#">标签</a></li>
+                    <li onclick="loadHtmlPart('/reader/friend', 'contentPart');"><a href="#">好友</a></li>
+                    <li onclick="loadHtmlPart('/reader/bookNote', 'contentPart');"><a href="#">读书</a></li>
+                    <li onclick="loadHtmlPart('/reader/bookReview', 'contentPart');"><a href="#">书评</a></li>
                 </ul>
 
             </div>
         </div>
+        <!--内容展示区-->
+        <div id="contentPart" class="col-xs-7 col-md-push-1">
 
-        <div class="col-xs-7 col-md-push-1">
-            <iframe src="/reader/bookList" name="_iframe" frameborder="0"
-                    width="100%" height="100%" scrolling="no" onload="setIframeHeight(this)"></iframe>
         </div>
 
     </div>
@@ -103,17 +104,20 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- iframe自适应高度-->
-<script th:inline="javascript">
+<!--动态替换-->
+<script type="text/javascript" th:inline="javascript">
     /*<![CDATA[*/
-    function setIframeHeight(iframe) {
-        if (iframe) {
-            var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
-            if (iframeWin.document.body) {
-                iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
-            }
-        }
+    function loadHtmlPart(url, divID) {
+        $.get(url, function (data) {
+            $('#' + divID).html(data);
+        })
     }
+    /*]]>*/
+</script>D
+<!--加载默认-->
+<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+    $(document).ready(loadHtmlPart('/reader/readState', 'contentPart'));
     /*]]>*/
 </script>
 </body>

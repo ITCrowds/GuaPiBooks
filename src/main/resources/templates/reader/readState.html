@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<div class="us-occupation section-board">
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li id="_reading" role="presentation" class="active"><a href="#">在读</a></li>
+                <li id="_read" role="presentation"><a href="#">已读</a></li>
+                <li id="_to-read" role="presentation"><a href="#">想读</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!--内容列举-->
+    <div id="reading" class="shelf">
+        <ul class="list-col list-col5 list-express slide-item"
+            th:each="readingBook:${readingBooks}">
+            <!--展示每一本-->
+            <li class="">
+                <div class="cover">
+                    <a th:href="@{/book/info/{id}(id=${readingBook.bookId})}" title="书名"
+                       th:title="${readingBook.bookName}">
+                        <img th:src="${readingBook.bookPic}" src="/image/avatar.png" class=""
+                             width="106px" height="158px" alt="书名"
+                             th:alt="${readingBook.bookName}"/>
+                    </a>
+                </div>
+                <div class="info">
+                    <div class="title">
+                        <a class=""
+                           th:href="@{/book/info/{id}(id=${readingBook.bookId})}"
+                           th:title="${readingBook.bookName}"
+                           th:text="${readingBook.bookName}">书名</a>
+                    </div>
+                    <div class="author" th:text="${readingBook.bookAuthor}">
+                        书籍作者
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="read" class="shelf">
+        <ul class="list-col list-col5 list-express slide-item"
+            th:each="readedBook:${readedBooks}">
+            <!--展示每一本-->
+            <li class="">
+                <div class="cover">
+                    <a th:href="@{/book/info/{id}(id=${readedBook.bookId})}" title="书名"
+                       th:title="${readedBook.bookName}">
+                        <img th:src="${readedBook.bookPic}" src="/image/avatar.png" class=""
+                             width="106px" height="158px" alt="书名"
+                             th:alt="${readedBook.bookName}"/>
+                    </a>
+                </div>
+                <div class="info">
+                    <div class="title">
+                        <a class=""
+                           th:href="@{/book/info/{id}(id=${readedBook.bookId})}"
+                           th:title="${readedBook.bookName}"
+                           th:text="${readedBook.bookName}">书名</a>
+                    </div>
+                    <div class="author" th:text="${readedBook.bookAuthor}">
+                        书籍作者
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="to-read" class="shelf">
+        <ul class="list-col list-col5 list-express slide-item"
+            th:each="toReadBook:${toReadBooks}">
+            <!--展示每一本-->
+            <li class="">
+                <div class="cover">
+                    <a th:href="@{/book/info/{id}(id=${toReadBook.bookId})}" title="书名"
+                       th:title="${toReadBook.bookName}">
+                        <img th:src="${toReadBook.bookPic}" src="/image/avatar.png" class=""
+                             width="106px" height="158px" alt="书名"
+                             th:alt="${toReadBook.bookName}"/>
+                    </a>
+                </div>
+                <div class="info">
+                    <div class="title">
+                        <a class=""
+                           th:href="@{/book/info/{id}(id=${toReadBook.bookId})}"
+                           th:title="${toReadBook.bookName}"
+                           th:text="${toReadBook.bookName}">书名</a>
+                    </div>
+                    <div class="author" th:text="${toReadBook.bookAuthor}">
+                        书籍作者
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    $(document).ready(function () {
+        $("#_reading").click(function () {
+            $("#_reading").attr("class", "active");
+            $("#_read").attr("class", "");
+            $("#_to-read").attr("class", "");
+            $("#reading").show();
+            $("#read").hide();
+            $("#to-read").hide();
+        });
+        $("#_read").click(function () {
+            $("#_reading").attr("class", "");
+            $("#_read").attr("class", "active");
+            $("#_to-read").attr("class", "");
+            $("#reading").hide();
+            $("#read").show();
+            $("#to-read").hide();
+        });
+        $("#_to-read").click(function () {
+            $("#_reading").attr("class", "");
+            $("#_read").attr("class", "");
+            $("#_to-read").attr("class", "active");
+            $("#reading").hide();
+            $("#read").hide();
+            $("#to-read").show();
+        });
+    });
+    /*]]>*/
+</script>
+</html>

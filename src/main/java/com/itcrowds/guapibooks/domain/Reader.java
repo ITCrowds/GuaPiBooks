@@ -13,6 +13,10 @@ import java.util.List;
 @Alias("reader")
 public class Reader implements UserDetails {
 
+    public static final int TOREAD = 1;
+    public static final int READING = 2;
+    public static final int READED = 3;
+
     private Integer id;
     private String name;
     private String emailAddress;

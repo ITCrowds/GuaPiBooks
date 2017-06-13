@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html lang="zh-CN" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>瓜皮读书 · 书房</title>
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="/css/style.css" rel="stylesheet "/>
-    <link href="/css/readerspace.css" rel="stylesheet"/>
-</head>
+<!--<head>-->
+    <!--<meta charset="UTF-8"/>-->
+    <!--<meta name="viewport"-->
+          <!--content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>-->
+    <!--<meta http-equiv="X-UA-Compatible" content="ie=edge"/>-->
+    <!--<title>瓜皮读书 · 书房</title>-->
+    <!--&lt;!&ndash; Bootstrap core CSS &ndash;&gt;-->
+    <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>-->
+    <!--<link href="/css/style.css" rel="stylesheet "/>-->
+    <!--<link href="/css/readerspace.css" rel="stylesheet"/>-->
+<!--</head>-->
 
-<body>
+<!--<body>-->
 <div class="us-occupation section-board iframe-item">
-    <nav class="navbar-default navbar-fixed-top">
-        <ul class="nav nav-pills">
-            <li id="_reading" role="presentation" class="active"><a>在读</a></li>
-            <li id="_read" role="presentation"><a>已读</a></li>
-            <li id="_to-read" role="presentation"><a>想读</a></li>
-        </ul>
-    </nav>
+    <!--<nav class="navbar-default navbar-fixed-top">-->
+        <!--<ul class="nav nav-pills">-->
+            <!--<li id="_reading" role="presentation" class="active"><a>在读</a></li>-->
+            <!--<li id="_read" role="presentation"><a>已读</a></li>-->
+            <!--<li id="_to-read" role="presentation"><a>想读</a></li>-->
+        <!--</ul>-->
+    <!--</nav>-->
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills pull-right">
+                <li id="_reading" role="presentation" class="active"><a href="#">在读</a></li>
+                <li id="_read" role="presentation"><a href="#">已读</a></li>
+                <li id="_to-read" role="presentation"><a href="#">想读</a></li>
+            </ul>
+        </nav>
+    </div>
 
+    <!--内容列举-->
     <div id="reading" class="shelf">
         <ul class="list-col list-col5 list-express slide-item">
             <li class="">
@@ -252,8 +262,8 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
+<!--<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 <script th:inline="javascript">
     /*<![CDATA[*/
     $(document).ready(function () {
@@ -284,5 +294,5 @@
     });
     /*]]>*/
 </script>
-</body>
+<!--</body>-->
 </html>

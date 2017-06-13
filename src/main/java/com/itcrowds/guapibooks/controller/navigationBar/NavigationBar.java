@@ -10,6 +10,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 
+/**
+ * 状态栏数据
+ */
 @Component
 // @Scope("prototype") //开启多例模式 默认单例
 public class NavigationBar {

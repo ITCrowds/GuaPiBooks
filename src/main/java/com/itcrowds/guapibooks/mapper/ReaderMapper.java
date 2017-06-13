@@ -20,4 +20,12 @@ public interface ReaderMapper {
     Reader getReaderByEmail(@Param("email") String email);
 
     Reader getReaderById(@Param("id") int id);
+
+    /**
+     * 根据读者ID及阅读状态返回书籍ID列表
+     * @param id 读者ID
+     * @param state 书籍阅读状态
+     * @return 读者某阅读状态的书籍的ID列表
+     */
+    List<Integer> getBookIDListByReaderAndReadingState(@Param("id") int id, @Param("state") int state);
 }
