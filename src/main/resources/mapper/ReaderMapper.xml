@@ -36,4 +36,9 @@
     <select id="getBookIDListByReaderAndReadingState" resultType="int">
         SELECT BOOK_ID FROM READER_BOOK WHERE READER_ID = #{id} AND REDAER_BOOK_STATUS = #{state}
     </select>
+
+    <update id="setBookReadingState">
+        UPDATE READER_BOOK SET READER_BOOK_STATUS = #{bookState}
+        WHERE READER_ID = #{readerId} AND BOOK_ID = #{bookId}
+    </update>
 </mapper>

@@ -46,4 +46,19 @@ public class ReaderServiceImpl implements ReaderService {
         return readingBookList;
     }
 
+    @Override
+    public void setBookReadingState(int readerId,int bookId,String bookReadingState){
+        Reader reader = readerMapper.getReaderById(readerId);
+        int readingState;
+        if(bookReadingState.equals("toread")){
+            readingState = Reader.TOREAD;
+        }
+        else if(bookReadingState.equals("reading")){
+            readingState = Reader.READING;
+        }
+        else{
+            readingState = Reader.READED;
+        }
+        readerMapper.setBookReadingState(readerId,bookId,readingState);
+    }
 }

@@ -28,7 +28,7 @@
             <ul class="booklist">
                 <li class="item" th:each="book:${bookList}">
                     <div class="cover">
-                        <a class="cover" href="https://book.douban.com/subject/27003599/?icn=index-editionrecommend">
+                        <a class="cover" th:href="@{/book/info/{id}(id=${book.bookId})}">
                             <img th:src="${book.bookPic}" alt="image loading..." width="106px" height="158px" />
                         </a>
                     </div>
@@ -51,7 +51,7 @@
                     <li class="rankitem">
                         <span class="ranknum" th:text="${bookStat.count}"></span>
                         <div class="bookinfo">
-                            <a href="book info url" th:text="${book.bookName}"></a>
+                            <a href="@{/book/info/${book.bookId}" th:text="${book.bookName}"></a>
                             <div class="author" th:text="${book.bookAuthor}"></div>
                         </div>
                     </li>

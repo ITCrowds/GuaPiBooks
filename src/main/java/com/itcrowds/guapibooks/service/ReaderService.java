@@ -32,4 +32,6 @@ public interface ReaderService {
      * @return 正在阅读的书籍列表
      */
     List<Book> getBookListByReaderAndReadingState(int readerId, int readingState);
+
+    void setBookReadingState(int readerId,int bookId,String readingState);
 }

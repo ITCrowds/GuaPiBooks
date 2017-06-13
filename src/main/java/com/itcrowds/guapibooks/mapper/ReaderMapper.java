@@ -28,4 +28,6 @@ public interface ReaderMapper {
      * @return 读者某阅读状态的书籍的ID列表
      */
     List<Integer> getBookIDListByReaderAndReadingState(@Param("id") int id, @Param("state") int state);
+
+    void setBookReadingState(@Param("readerId") int readerId,@Param("bookId") int bookId,@Param("bookState") int bookState);
 }
