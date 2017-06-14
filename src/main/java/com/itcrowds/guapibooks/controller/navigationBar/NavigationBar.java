@@ -1,6 +1,6 @@
 package com.itcrowds.guapibooks.controller.navigationBar;
 
-import com.itcrowds.guapibooks.controller.HomeController;
+import com.itcrowds.guapibooks.controller.reader.ReaderController;
 import com.itcrowds.guapibooks.domain.Reader;
 import com.itcrowds.guapibooks.service.ReaderService;
 
@@ -17,7 +17,7 @@ import javax.annotation.Resource;
 @Component
 // @Scope("prototype") //开启多例模式 默认单例
 public class NavigationBar {
-    private static Logger logger = LoggerFactory.getLogger(HomeController.class);
+    private static Logger logger = LoggerFactory.getLogger(ReaderController.class);
 
     @Resource
     private ReaderService readerService;

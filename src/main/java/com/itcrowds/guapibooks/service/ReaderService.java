@@ -59,4 +59,8 @@ public interface ReaderService {
     Reader getLoginReader();
 
     void setBookReadingState(int readerId, int bookId, String readingState);
+
+    boolean isReaderEmailExist(String readerEmail);
+
+    void registerNewReader(String eamil, String password);
 }

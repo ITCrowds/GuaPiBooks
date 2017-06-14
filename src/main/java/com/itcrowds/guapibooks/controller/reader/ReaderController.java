@@ -1,6 +1,5 @@
 package com.itcrowds.guapibooks.controller.reader;
 
-import com.itcrowds.guapibooks.controller.HomeController;
 import com.itcrowds.guapibooks.controller.navigationBar.NavigationBar;
 import com.itcrowds.guapibooks.domain.Book;
 import com.itcrowds.guapibooks.domain.Reader;
@@ -14,7 +13,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("/reader")
 public class ReaderController {
-    private static Logger logger = LoggerFactory.getLogger(HomeController.class);
+    private static Logger logger = LoggerFactory.getLogger(ReaderController.class);
 
     @Resource
     private NavigationBar navigationBar;

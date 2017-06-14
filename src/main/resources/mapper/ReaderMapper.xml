@@ -55,4 +55,15 @@
         UPDATE READER_BOOK SET REDAER_BOOK_STATUS = #{bookState}
         WHERE READER_ID = #{readerId} AND BOOK_ID = #{bookId}
     </update>
+
+    <select id="getReaderCountByEmail" resultType="int" parameterType="String">
+        SELECT count(READER_ID) READER_ID
+        FROM READER
+        WHERE READER_EMAIL = #{email};
+    </select>
+
+    <insert id="registerNewReader" parameterType="String">
+        INSERT INTO READER (READER_NAME, READER_PASSWORD, READER_EMAIL)
+        VALUES (#{name}, #{password}, #{email});
+    </insert>
 </mapper>

@@ -31,7 +31,7 @@ public class WebSecurityAdapter extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 // 不需要验证的页面
-                .antMatchers("/","/books/**", "/login/**", "/login/auth")
+                .antMatchers("/","/books/**", "/login/**", "/register")
                 .permitAll()
 
                 // 需要进行验证的页面

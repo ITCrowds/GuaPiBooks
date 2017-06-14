@@ -44,5 +44,7 @@ public interface ReaderMapper {
     int getCountByReaderAndBook(@Param("readerId") int readerId,
                                 @Param("bookId") int bookId);
 
+    int getReaderCountByEmail(@Param("email") String email);
 
+    void registerNewReader(@Param("name") String name, @Param("email") String email, @Param("password") String password);
 }

@@ -24,9 +24,6 @@ public class ReaderServiceImpl implements ReaderService {
     @Resource
     private BookMapper bookMapper;
 
-    @Resource
-    private ReviewMapper reviewMapper;
-
     @Override
     public boolean checkPassword(String readerName, String password) {
         return Md5Util.pwdDigest(password).equals(readerMapper.getReaderByName(readerName).getPassword());
@@ -93,6 +90,16 @@ public class ReaderServiceImpl implements ReaderService {
         } else {
             readerMapper.updateBookReadingState(readerId, bookId, readingState);
         }
+    }
+
+    @Override
+    public boolean isReaderEmailExist(String readerEmail) {
+        return 0 != readerMapper.getReaderCountByEmail(readerEmail);
+    }
+
+    @Override
+    public void registerNewReader(String eamil, String password) {
+        readerMapper.registerNewReader(eamil.split("@")[0], eamil, Md5Util.pwdDigest(password));
     }
 
 }

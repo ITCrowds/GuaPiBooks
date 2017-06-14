@@ -1,298 +1,419 @@
 <!DOCTYPE html>
 <html lang="zh-CN" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
-<!--<head>-->
-    <!--<meta charset="UTF-8"/>-->
-    <!--<meta name="viewport"-->
-          <!--content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>-->
-    <!--<meta http-equiv="X-UA-Compatible" content="ie=edge"/>-->
-    <!--<title>瓜皮读书 · 书房</title>-->
-    <!--&lt;!&ndash; Bootstrap core CSS &ndash;&gt;-->
-    <!--<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>-->
-    <!--<link href="/css/style.css" rel="stylesheet "/>-->
-    <!--<link href="/css/readerspace.css" rel="stylesheet"/>-->
-<!--</head>-->
-
-<!--<body>-->
-<div class="us-occupation section-board iframe-item">
-    <!--<nav class="navbar-default navbar-fixed-top">-->
-        <!--<ul class="nav nav-pills">-->
-            <!--<li id="_reading" role="presentation" class="active"><a>在读</a></li>-->
-            <!--<li id="_read" role="presentation"><a>已读</a></li>-->
-            <!--<li id="_to-read" role="presentation"><a>想读</a></li>-->
-        <!--</ul>-->
-    <!--</nav>-->
-    <div class="header clearfix">
-        <nav>
-            <ul class="nav nav-pills pull-right">
-                <li id="_reading" role="presentation" class="active"><a href="#">在读</a></li>
-                <li id="_read" role="presentation"><a href="#">已读</a></li>
-                <li id="_to-read" role="presentation"><a href="#">想读</a></li>
+<div class="us-occupation section-board">
+    <link href="/css/bookList.css" rel="stylesheet "/>
+    <!--全部书单列表-->
+    <div id="bookLists">
+        <!--toolbar-->
+        <div class="header clearfix" id="editBookLists">
+            <button id="addBookList">添加书单</button>
+            <button id="deleteBookLists">删除书单</button>
+            <button id="deleteDone">完成</button>
+        </div>
+        <!--书单列表-->
+        <div>
+            <ul>
+                <li>
+                    <div class="booklistdiv">
+                        <div>
+                            <span>我想读的书</span>
+                            <img class="rightarrow" src="/image/rightarrow.jpg" alt="右键头"/>
+                            <img class="deleteSingleBL" src="/image/delete.jpg" alt="X"/>
+                        </div>
+                        <div>
+                            <ul class="booklist">
+                                <li>
+                                    <img src="https://img1.doubanio.com/lpic/s29370568.jpg"
+                                         alt="元素周期表"/>
+                                </li>
+                                <li>
+                                    <img src="https://img3.doubanio.com/lpic/s29435452.jpg"
+                                         alt="冰下的人"/>
+                                </li>
+                                <li>
+                                    <img src="https://img3.doubanio.com/lpic/s29442790.jpg"
+                                         alt="五个人的战争"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="booklistdiv">
+                        <div>
+                            <span>我不想读的书</span>
+                            <img class="rightarrow" src="/image/rightarrow.jpg" alt="右键头"/>
+                            <img class="deleteSingleBL" src="/image/delete.jpg" alt="X"/>
+                        </div>
+                        <div>
+                            <ul class="booklist">
+                                <li>
+                                    <img src="https://img3.doubanio.com/lpic/s29405715.jpg"
+                                         alt="二十亿光年的孤独"/>
+                                </li>
+                                <li>
+                                    <img src="https://img3.doubanio.com/lpic/s29423950.jpg"
+                                         alt="音乐即自由"/>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
             </ul>
-        </nav>
+        </div>
     </div>
 
-    <!--内容列举-->
-    <div id="reading" class="shelf">
-        <ul class="list-col list-col5 list-express slide-item">
-            <li class="">
-                <div class="cover">
-                    <a href="https://book.douban.com/subject/26976266/?icn=index-latestbook-subject"
-                       title="二十亿光年的孤独">
-                        <img src="https://img3.doubanio.com/lpic/s29405715.jpg" class=""
-                             width="106px" height="158px" alt="二十亿光年的孤独"/>
-                    </a>
-                </div>
-                <div class="info">
-                    <div class="title">
-                        <a class=""
-                           href="https://book.douban.com/subject/26976266/?icn=index-latestbook-subject"
-                           title="二十亿光年的孤独">二十亿光年的孤独</a>
-                    </div>
-                    <div class="author">
-                        [日] 谷川俊太郎
-                    </div>
-                </div>
-            </li>
+    <!--详细书单内容-->
+    <div id="singleBookList">
+        <div class="header clearfix" style="width: 100%">
+            <!--编辑前后toolbar-->
+            <div id="editSingleBookList">
+                <button id="editButton">编辑书单</button>
+            </div>
+            <!--编辑中toolbar-->
+            <div id="editingSingleBL">
+                <span>对谁可见:</span>
+                <form>
+                    <select name="visiablity">
+                        <option value="public" selected="selected">所有人</option>
+                        <option value="private">仅自己</option>
+                    </select>
+                </form>
+                <button id="doneButton">完成</button>
+            </div>
+        </div>
+        <!--我想读的书-->
+        <div>
+            <div id="beforeEdit">
+                <span>我想读的书</span>
+                <img class="downarrow" src="/image/downarrow.jpg" alt="下键头"/>
+            </div>
+            <div id="afterEdit">
+                <input type="text" title="书单名称" value="我想读的书"/>
+                <button id="cancelEdit">取消</button>
+            </div>
+            <div class="shelf">
+                <ul class="list-col list-col5 list-express slide-item">
+                    <li id="addBookToBL">
+                        <img src="/image/add.jpg" class="addBook" width="106px" height="158px"
+                             alt="+"/>
+                    </li>
+                    <li class="">
+                        <img class="deleteBook" src="/image/delete.jpg" alt="X"/>
+                        <div class="cover">
+                            <a href="https://book.douban.com/subject/26976266/?icn=index-latestbook-subject"
+                               title="二十亿光年的孤独">
+                                <img src="https://img3.doubanio.com/lpic/s29405715.jpg" class=""
+                                     width="106px" height="158px" alt="二十亿光年的孤独"/>
+                            </a>
+                        </div>
+                        <div class="info">
+                            <div class="title">
+                                <a class=""
+                                   href="https://book.douban.com/subject/26976266/?icn=index-latestbook-subject"
+                                   title="二十亿光年的孤独">二十亿光年的孤独</a>
+                            </div>
+                            <div class="author">
+                                [日] 谷川俊太郎
+                            </div>
+                        </div>
+                    </li>
 
-            <li class="">
-                <div class="cover">
-                    <a href="https://book.douban.com/subject/26984672/?icn=index-latestbook-subject"
-                       title="元素周期表">
-                        <img src="https://img1.doubanio.com/lpic/s29370568.jpg" class=""
-                             width="106px" height="158px" alt="元素周期表"/>
-                    </a>
-                </div>
-                <div class="info">
-                    <div class="title">
-                        <a class=""
-                           href="https://book.douban.com/subject/26984672/?icn=index-latestbook-subject"
-                           title="元素周期表">元素周期表</a>
-                    </div>
-                    <div class="author">
-                        [意] 普里莫·莱维
-                    </div>
-                </div>
-            </li>
+                    <li class="">
+                        <img class="deleteBook" src="/image/delete.jpg" alt="X"/>
+                        <div class="cover">
+                            <a href="https://book.douban.com/subject/26984672/?icn=index-latestbook-subject"
+                               title="元素周期表">
+                                <img src="https://img1.doubanio.com/lpic/s29370568.jpg" class=""
+                                     width="106px" height="158px" alt="元素周期表"/>
+                            </a>
+                        </div>
+                        <div class="info">
+                            <div class="title">
+                                <a class=""
+                                   href="https://book.douban.com/subject/26984672/?icn=index-latestbook-subject"
+                                   title="元素周期表">元素周期表</a>
+                            </div>
+                            <div class="author">
+                                [意] 普里莫·莱维
+                            </div>
+                        </div>
+                    </li>
 
-            <li class="">
-                <div class="cover">
-                    <a href="https://book.douban.com/subject/27018089/?icn=index-latestbook-subject"
-                       title="音乐即自由">
-                        <img src="https://img3.doubanio.com/lpic/s29423950.jpg" class=""
-                             width="106px" height="158px" alt="音乐即自由"/>
-                    </a>
-                </div>
-                <div class="info">
-                    <div class="title">
-                        <a class=""
-                           href="https://book.douban.com/subject/27018089/?icn=index-latestbook-subject"
-                           title="音乐即自由">音乐即自由</a>
-                    </div>
-                    <div class="author">
-                        [日] 坂本龙一
-                    </div>
-                </div>
-            </li>
+                    <li class="">
+                        <img class="deleteBook" src="/image/delete.jpg" alt="X"/>
+                        <div class="cover">
+                            <a href="https://book.douban.com/subject/27018089/?icn=index-latestbook-subject"
+                               title="音乐即自由">
+                                <img src="https://img3.doubanio.com/lpic/s29423950.jpg" class=""
+                                     width="106px" height="158px" alt="音乐即自由"/>
+                            </a>
+                        </div>
+                        <div class="info">
+                            <div class="title">
+                                <a class=""
+                                   href="https://book.douban.com/subject/27018089/?icn=index-latestbook-subject"
+                                   title="音乐即自由">音乐即自由</a>
+                            </div>
+                            <div class="author">
+                                [日] 坂本龙一
+                            </div>
+                        </div>
+                    </li>
 
+                    <li class="">
+                        <img class="deleteBook" src="/image/delete.jpg" alt="X"/>
+                        <div class="cover">
+                            <a href="https://book.douban.com/subject/27029891/?icn=index-latestbook-subject"
+                               title="冰下的人">
+                                <img src="https://img3.doubanio.com/lpic/s29435452.jpg" class=""
+                                     width="106px" height="158px" alt="冰下的人"/>
+                            </a>
+                        </div>
+                        <div class="info">
+                            <div class="title">
+                                <a class=""
+                                   href="https://book.douban.com/subject/27029891/?icn=index-latestbook-subject"
+                                   title="冰下的人">冰下的人</a>
+                            </div>
+                            <div class="author">
+                                侯磊
+                            </div>
+                        </div>
+                    </li>
 
-            <li class="">
-                <div class="cover">
-                    <a href="https://book.douban.com/subject/27029891/?icn=index-latestbook-subject"
-                       title="冰下的人">
-                        <img src="https://img3.doubanio.com/lpic/s29435452.jpg" class=""
-                             width="106px" height="158px" alt="冰下的人"/>
-                    </a>
-                </div>
-                <div class="info">
-                    <div class="title">
-                        <a class=""
-                           href="https://book.douban.com/subject/27029891/?icn=index-latestbook-subject"
-                           title="冰下的人">冰下的人</a>
-                    </div>
-                    <div class="author">
-                        侯磊
-                    </div>
-                </div>
-            </li>
+                    <li class="">
+                        <img class="deleteBook" src="/image/delete.jpg" alt="X"/>
+                        <div class="cover">
+                            <a href="https://book.douban.com/subject/26995723/?icn=index-latestbook-subject"
+                               title="五个人的战争">
+                                <img src="https://img3.doubanio.com/lpic/s29442790.jpg" class=""
+                                     width="106px" height="158px" alt="五个人的战争"/>
+                            </a>
+                        </div>
+                        <div class="info">
+                            <div class="title">
+                                <a class=""
+                                   href="https://book.douban.com/subject/26995723/?icn=index-latestbook-subject"
+                                   title="五个人的战争">五个人的战争</a>
+                            </div>
+                            <div class="author">
+                                [美] 马克·哈里斯
+                            </div>
+                        </div>
+                    </li>
 
+                    <li class="">
+                        <img class="deleteBook" src="/image/delete.jpg" alt="X"/>
+                        <div class="cover">
+                            <a href="https://book.douban.com/subject/26897741/?icn=index-latestbook-subject"
+                               title="破门">
+                                <img src="https://img1.doubanio.com/lpic/s29446779.jpg" class=""
+                                     width="106px" height="158px" alt="破门"/>
+                            </a>
+                        </div>
+                        <div class="info">
+                            <div class="title">
+                                <a class=""
+                                   href="https://book.douban.com/subject/26897741/?icn=index-latestbook-subject"
+                                   title="破门">破门</a>
+                            </div>
+                            <div class="author">
+                                [日] 黑川博行
+                            </div>
+                        </div>
+                    </li>
 
-            <li class="">
-                <div class="cover">
-                    <a href="https://book.douban.com/subject/26995723/?icn=index-latestbook-subject"
-                       title="五个人的战争">
-                        <img src="https://img3.doubanio.com/lpic/s29442790.jpg" class=""
-                             width="106px" height="158px" alt="五个人的战争"/>
-                    </a>
-                </div>
-                <div class="info">
-                    <div class="title">
-                        <a class=""
-                           href="https://book.douban.com/subject/26995723/?icn=index-latestbook-subject"
-                           title="五个人的战争">五个人的战争</a>
-                    </div>
-                    <div class="author">
-                        [美] 马克·哈里斯
-                    </div>
-                </div>
-            </li>
+                    <li class="">
+                        <img class="deleteBook" src="/image/delete.jpg" alt="X"/>
+                        <div class="cover">
+                            <a href="https://book.douban.com/subject/26892159/?icn=index-latestbook-subject"
+                               title="树号">
+                                <img src="https://img3.doubanio.com/lpic/s29400074.jpg" class=""
+                                     width="106px" height="158px" alt="树号"/>
+                            </a>
+                        </div>
+                        <div class="info">
+                            <div class="title">
+                                <a class=""
+                                   href="https://book.douban.com/subject/26892159/?icn=index-latestbook-subject"
+                                   title="树号">树号</a>
+                            </div>
+                            <div class="author">
+                                [俄] 维克托·阿斯塔菲耶夫
+                            </div>
+                        </div>
+                    </li>
 
+                    <li class="">
+                        <img class="deleteBook" src="/image/delete.jpg" alt="X"/>
+                        <div class="cover">
+                            <a href="https://book.douban.com/subject/26970515/?icn=index-latestbook-subject"
+                               title="远野物语Remix">
+                                <img src="https://img3.doubanio.com/lpic/s29402680.jpg" class=""
+                                     width="106px" height="158px" alt="远野物语Remix"/>
+                            </a>
+                        </div>
+                        <div class="info">
+                            <div class="title">
+                                <a class=""
+                                   href="https://book.douban.com/subject/26970515/?icn=index-latestbook-subject"
+                                   title="远野物语Remix">远野物语Remix</a>
+                            </div>
+                            <div class="author">
+                                [日] 京极夏彦&nbsp;/&nbsp;[日] 柳田国男
+                            </div>
+                        </div>
+                    </li>
 
-            <li class="">
-                <div class="cover">
-                    <a href="https://book.douban.com/subject/26897741/?icn=index-latestbook-subject"
-                       title="破门">
-                        <img src="https://img1.doubanio.com/lpic/s29446779.jpg" class=""
-                             width="106px" height="158px" alt="破门"/>
-                    </a>
-                </div>
-                <div class="info">
-                    <div class="title">
-                        <a class=""
-                           href="https://book.douban.com/subject/26897741/?icn=index-latestbook-subject"
-                           title="破门">破门</a>
-                    </div>
-                    <div class="author">
-                        [日] 黑川博行
-                    </div>
-                </div>
-            </li>
+                    <li class="">
+                        <img class="deleteBook" src="/image/delete.jpg" alt="X"/>
+                        <div class="cover">
+                            <a href="https://book.douban.com/subject/27013663/?icn=index-latestbook-subject"
+                               title="时间的果">
+                                <img src="https://img3.doubanio.com/lpic/s29446323.jpg" class=""
+                                     width="106px" height="158px" alt="时间的果"/>
+                            </a>
+                        </div>
+                        <div class="info">
+                            <div class="title">
+                                <a class=""
+                                   href="https://book.douban.com/subject/27013663/?icn=index-latestbook-subject"
+                                   title="时间的果">时间的果</a>
+                            </div>
+                            <div class="author">
+                                黎戈
+                            </div>
 
+                        </div>
+                    </li>
 
-            <li class="">
-                <div class="cover">
-                    <a href="https://book.douban.com/subject/26892159/?icn=index-latestbook-subject"
-                       title="树号">
-                        <img src="https://img3.doubanio.com/lpic/s29400074.jpg" class=""
-                             width="106px" height="158px" alt="树号"/>
-                    </a>
-                </div>
-                <div class="info">
-                    <div class="title">
-                        <a class=""
-                           href="https://book.douban.com/subject/26892159/?icn=index-latestbook-subject"
-                           title="树号">树号</a>
-                    </div>
-                    <div class="author">
-                        [俄] 维克托·阿斯塔菲耶夫
-                    </div>
-                </div>
-            </li>
+                    <li class="">
+                        <img class="deleteBook" src="/image/delete.jpg" alt="X"/>
+                        <div class="cover">
+                            <a href="https://book.douban.com/subject/26982739/?icn=index-latestbook-subject"
+                               title="重新派遣">
+                                <img src="https://img1.doubanio.com/lpic/s29365189.jpg" class=""
+                                     width="106px" height="158px" alt="重新派遣"/>
+                            </a>
+                        </div>
+                        <div class="info">
+                            <div class="title">
+                                <a class=""
+                                   href="https://book.douban.com/subject/26982739/?icn=index-latestbook-subject"
+                                   title="重新派遣">重新派遣</a>
+                            </div>
+                            <div class="author">
+                                [美]菲尔·克莱
+                            </div>
 
-
-            <li class="">
-                <div class="cover">
-                    <a href="https://book.douban.com/subject/26970515/?icn=index-latestbook-subject"
-                       title="远野物语Remix">
-                        <img src="https://img3.doubanio.com/lpic/s29402680.jpg" class=""
-                             width="106px" height="158px" alt="远野物语Remix"/>
-                    </a>
-                </div>
-                <div class="info">
-                    <div class="title">
-                        <a class=""
-                           href="https://book.douban.com/subject/26970515/?icn=index-latestbook-subject"
-                           title="远野物语Remix">远野物语Remix</a>
-                    </div>
-                    <div class="author">
-                        [日] 京极夏彦&nbsp;/&nbsp;[日] 柳田国男
-                    </div>
-                </div>
-            </li>
-
-
-            <li class="">
-                <div class="cover">
-                    <a href="https://book.douban.com/subject/27013663/?icn=index-latestbook-subject"
-                       title="时间的果">
-                        <img src="https://img3.doubanio.com/lpic/s29446323.jpg" class=""
-                             width="106px" height="158px" alt="时间的果"/>
-                    </a>
-                </div>
-                <div class="info">
-                    <div class="title">
-                        <a class=""
-                           href="https://book.douban.com/subject/27013663/?icn=index-latestbook-subject"
-                           title="时间的果">时间的果</a>
-                    </div>
-                    <div class="author">
-                        黎戈
-                    </div>
-
-                </div>
-            </li>
-
-
-            <li class="">
-                <div class="cover">
-                    <a href="https://book.douban.com/subject/26982739/?icn=index-latestbook-subject"
-                       title="重新派遣">
-                        <img src="https://img1.doubanio.com/lpic/s29365189.jpg" class=""
-                             width="106px" height="158px" alt="重新派遣"/>
-                    </a>
-                </div>
-                <div class="info">
-                    <div class="title">
-                        <a class=""
-                           href="https://book.douban.com/subject/26982739/?icn=index-latestbook-subject"
-                           title="重新派遣">重新派遣</a>
-                    </div>
-                    <div class="author">
-                        [美]菲尔·克莱
-                    </div>
-
-                </div>
-            </li>
-        </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-
-    <div id="read" class="shelf">
-        <ul class="list-col list-col5 list-express slide-item">
-            <li class="">已读</li>
-        </ul>
-    </div>
-
-    <div id="to-read" class="shelf">
-        <ul class="list-col list-col5 list-express slide-item">
-            <li class="">想读</li>
-        </ul>
+    <!--添加书单-->
+    <div id="newBL">
+        <div class="header clearfix" style="width: 100%">
+            <!--编辑中toolbar-->
+            <div id="editingSingleBL2">
+                <span>对谁可见:</span>
+                <form>
+                    <select name="visiablity">
+                        <option value="public" selected="selected">所有人</option>
+                        <option value="private">仅自己</option>
+                    </select>
+                </form>
+                <button id="doneButton2">完成</button>
+            </div>
+        </div>
+        <div style="border-top: solid thin gainsboro;">
+            <input type="text" title="书单名称"/>
+            <button id="cancel">取消</button>
+        </div>
+        <div class="shelf">
+            <ul class="list-col list-col5 list-express slide-item">
+                <li class="">
+                    <img src="/image/add.jpg" class="addBook" width="106px" height="158px" alt="+"/>
+                </li>
+            </ul>
+        </div>
     </div>
 
 </div>
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<!--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
-<!--<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 <script th:inline="javascript">
     /*<![CDATA[*/
     $(document).ready(function () {
-        $("#_reading").click(function () {
-            $("#_reading").attr("class", "active");
-            $("#_read").attr("class", "");
-            $("#_to-read").attr("class", "");
-            $("#reading").show();
-            $("#read").hide();
-            $("#to-read").hide();
+        //添加书单
+        $("#addBookList").click(function () {
+            $("#bookLists").hide();
+            $("#newBL").show();
         });
-        $("#_read").click(function () {
-            $("#_reading").attr("class", "");
-            $("#_read").attr("class", "active");
-            $("#_to-read").attr("class", "");
-            $("#reading").hide();
-            $("#read").show();
-            $("#to-read").hide();
+        //删除书单
+        $("#deleteBookLists").click(function () {
+            $("#addBookList").hide();
+            $("#deleteBookLists").hide();
+            $("#deleteDone").show();
+            $(".rightarrow").hide();
+            $(".deleteSingleBL").show();
         });
-        $("#_to-read").click(function () {
-            $("#_reading").attr("class", "");
-            $("#_read").attr("class", "");
-            $("#_to-read").attr("class", "active");
-            $("#reading").hide();
-            $("#read").hide();
-            $("#to-read").show();
+        //完成删除书单
+        $("#deleteDone").click(function () {
+            $("#deleteDone").hide();
+            $("#addBookList").show();
+            $("#deleteBookLists").show();
+            $(".deleteSingleBL").hide();
+            $(".rightarrow").show();
         });
-    });
+        //展开书单
+        $(".rightarrow").click(function () {
+            $("#bookLists").hide();
+            $("#singleBookList").show();
+        });
+        //收起书单
+        $(".downarrow").click(function () {
+            $("#singleBookList").hide();
+            $("#bookLists").show();
+        });
+        //编辑书单
+        $("#editButton").click(function () {
+            $("#editSingleBookList").hide();
+            $("#beforeEdit").hide();
+            $("#editingSingleBL").show();
+            $("#addBookToBL").show();
+            $("#afterEdit").show();
+            $(".deleteBook").show();
+        });
+        //完成编辑
+        $("#doneButton").click(function () {
+            $("#editingSingleBL").hide();
+            $("#addBookToBL").hide();
+            $("#afterEdit").hide();
+            $(".deleteBook").hide();
+            $("#editSingleBookList").show();
+            $("#beforeEdit").show();
+        });
+        //取消编辑
+        $("#cancelEdit").click(function () {
+            $("#editingSingleBL").hide();
+            $("#addBookToBL").hide();
+            $("#afterEdit").hide();
+            $(".deleteBook").hide();
+            $("#editSingleBookList").show();
+            $("#beforeEdit").show();
+        });
+        //完成编辑新增的书单
+        $("#doneButton2").click(function () {
+            $("#newBL").hide();
+            $("#bookLists").show();
+        });
+        //取消编辑新增的书单
+        $("#cancel").click(function () {
+            $("#newBL").hide();
+            $("#bookLists").show();
+        });
+    })
     /*]]>*/
 </script>
-<!--</body>-->
 </html>
