@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--link rel="icon" href=""-->
+
+    <title>以书会友</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/sign_css.css" rel="stylesheet ">
+
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/sign_js.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#mail_result").hide();
+            $("#pass_result").hide();
+        })
+
+    </script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+</head>
+<body>
+<form class="msform">
+    <!-- progressbar -->
+    <ul id="progressbar">
+        <li>Account Setup</li>
+        <li>Personal Details</li>
+    </ul>
+    <!-- fieldsets -->
+    <fieldset>
+        <h2>创建你的账户</h2>
+        <input type="text" id="emailVar" placeholder="邮箱" onblur="mail_blur();"/>
+        <div id = "mail_result" >输入不合法</div>
+        <input type="password" id="passVar" placeholder="密码" />
+        <input type="password" name="cpass" placeholder="确认密码" onblur="pass_blur();"/>
+        <div id="pass_result" >两次密码不一样</div>
+        <input type="button" id="next" value="提交"  />
+    </fieldset>
+    <fieldset>
+        <h2>个人标签</h2>
+        <div>
+            <form>
+                <ul>
+                    <li><input type="checkbox" name="vehicle" value="Literature">文学</li>
+                    <li><input type="checkbox" name="vehicle" value="History">历史</li>
+                    <li><input type="checkbox" name="vehicle" value="Fiction">小说</li>
+                    <li><input type="checkbox" name="vehicle" value="Manga">漫画</li>
+                    <input type="submit" name="submit" value="Submit" />
+                </ul>
+
+
+            </form>
+
+        </div>
+    </fieldset>
+</form>
+
+
+</body>
+</html>

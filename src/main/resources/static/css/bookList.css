@@ -1,0 +1,93 @@
+#bookLists{
+}
+
+#singleBookList{
+    display: none;
+}
+
+#newBL{
+    display: none;
+}
+
+#editBookLists{
+    width: 100%;
+    text-align: right;
+}
+
+#deleteDone{
+    display: none;
+}
+
+#editSingleBookList{
+    text-align: right;
+}
+
+#editingSingleBL{
+    display: none;
+}
+
+#editingSingleBL form, #editingSingleBL2 form{
+    display: inline;
+}
+
+#doneButton, #doneButton2, #cancel, #cancelEdit{
+    float: right;
+}
+
+#beforeEdit, #afterEdit{
+    border-top: solid thin gainsboro;
+}
+
+#afterEdit{
+    display: none;
+}
+
+#addBookToBL{
+    display: none;
+}
+
+.addBook{
+    border: dashed gainsboro;
+}
+
+.booklistdiv{
+    height: 150px;
+    border-top: solid thin gainsboro;
+}
+
+.booklistdivHeader{
+
+}
+
+.rightarrow, .downarrow, .deleteSingleBL{
+    float: right;
+    height: 20px;
+    width: 20px;
+    margin: 5px;
+}
+
+.deleteSingleBL{
+    display: none;
+    float: right;
+}
+
+.deleteBook{
+    display: none;
+    float: right;
+    height: 20px;
+    width: 20px;
+}
+
+.booklist{
+    list-style-type: none;
+}
+
+.booklist li{
+    padding: 5px;
+    float: left;
+}
+
+.booklist li img{
+    width: 80px;
+    height: 120px;
+}
