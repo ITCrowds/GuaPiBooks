@@ -40,4 +40,20 @@
     <select id="getFollowingReaderIDList" resultType="int">
         SELECT FOLLOW_ID FROM READER_FOLLOWER WHERE READER_ID = #{id}
     </select>
+
+    <select id="getCountByReaderAndBook" resultType="int">
+        SELECT COUNT(*) FROM READER_BOOK
+        WHERE READER_ID = #{readerId} AND BOOK_ID = #{bookId}
+    </select>
+
+    <insert id="insertBookReadingState">
+          INSERT INTO READER_BOOK(READER_ID,BOOK_ID,REDAER_BOOK_STATUS)
+            VALUES(#{readerId},#{bookId},#{bookState})
+    </insert>
+
+    <update id="updateBookReadingState">
+        UPDATE READER_BOOK SET REDAER_BOOK_STATUS = #{bookState}
+        WHERE READER_ID = #{readerId} AND BOOK_ID = #{bookId}
+    </update>
+
 </mapper>

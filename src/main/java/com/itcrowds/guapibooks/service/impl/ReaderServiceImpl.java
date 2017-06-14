@@ -33,10 +33,10 @@ public class ReaderServiceImpl implements ReaderService {
         return readerMapper.getReaderByEmail(email);
     }
 
-     @Override
-    public Reader getReaderById(int id){
+    @Override
+    public Reader getReaderById(int id) {
         return readerMapper.getReaderById(id);
-     }
+    }
 
     @Override
     public List<Book> getBookListByReaderAndReadingState(int readerId, int readingState) {
@@ -72,4 +72,21 @@ public class ReaderServiceImpl implements ReaderService {
         }
     }
 
+    public void setBookReadingState(int readerId, int bookId, String bookReadingState) {
+        Reader reader = readerMapper.getReaderById(readerId);
+        int readingState;
+        if (bookReadingState.equals("toread")) {
+            readingState = Reader.TOREAD;
+        } else if (bookReadingState.equals("reading")) {
+            readingState = Reader.READING;
+        } else {
+            readingState = Reader.READED;
+        }
+
+        if (readerMapper.getCountByReaderAndBook(readerId, bookId) == 0) {
+            readerMapper.insertBookReadingState(readerId, bookId, readingState);
+        } else {
+            readerMapper.updateBookReadingState(readerId, bookId, readingState);
+        }
+    }
 }

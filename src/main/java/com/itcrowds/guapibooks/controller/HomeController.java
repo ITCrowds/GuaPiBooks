@@ -24,7 +24,6 @@ public class HomeController
     @RequestMapping("/")
     public String homePage(Model model){
         navigationBar.setNavigationBar(model);
-
         return "books/index";
     }
 }

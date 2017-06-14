@@ -23,12 +23,20 @@ public interface ReaderMapper {
 
     /**
      * 根据读者ID及阅读状态返回书籍ID列表
-     * @param id 读者ID
+     *
+     * @param id    读者ID
      * @param state 书籍阅读状态
      * @return 读者某阅读状态的书籍的ID列表
      */
     List<Integer> getBookIDListByReaderAndReadingState(@Param("id") int id, @Param("state") int state);
 
     List<Integer> getFollowingReaderIDList(@Param("id") int id);
+
+
+    void insertBookReadingState(@Param("readerId") int readerId, @Param("bookId") int bookId, @Param("bookState") int bookState);
+
+    void updateBookReadingState(@Param("readerId") int readerId, @Param("bookId") int bookId, @Param("bookState") int bookState);
+
+    int getCountByReaderAndBook(@Param("readerId") int readerId, @Param("bookId") int bookId);
 
 }

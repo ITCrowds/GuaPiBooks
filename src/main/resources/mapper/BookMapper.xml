@@ -34,6 +34,6 @@
     </select>
 
     <select id="getAllBook" resultMap="book" resultType="book">
-        SELECT * FROM BOOK ORDER BY BOOK_MARKS LIMIT 0,3
+        SELECT * FROM BOOK ORDER BY BOOK_MARKS
     </select>
 </mapper>
