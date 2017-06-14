@@ -55,5 +55,4 @@
         UPDATE READER_BOOK SET REDAER_BOOK_STATUS = #{bookState}
         WHERE READER_ID = #{readerId} AND BOOK_ID = #{bookId}
     </update>
-
 </mapper>

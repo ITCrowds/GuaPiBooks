@@ -4,6 +4,7 @@ import com.itcrowds.guapibooks.domain.Book;
 import com.itcrowds.guapibooks.domain.Reader;
 import com.itcrowds.guapibooks.mapper.BookMapper;
 import com.itcrowds.guapibooks.mapper.ReaderMapper;
+import com.itcrowds.guapibooks.mapper.ReviewMapper;
 import com.itcrowds.guapibooks.service.ReaderService;
 import com.itcrowds.guapibooks.util.Md5Util;
 
@@ -22,6 +23,9 @@ public class ReaderServiceImpl implements ReaderService {
     private ReaderMapper readerMapper;
     @Resource
     private BookMapper bookMapper;
+
+    @Resource
+    private ReviewMapper reviewMapper;
 
     @Override
     public boolean checkPassword(String readerName, String password) {
@@ -72,6 +76,7 @@ public class ReaderServiceImpl implements ReaderService {
         }
     }
 
+    @Override
     public void setBookReadingState(int readerId, int bookId, String bookReadingState) {
         Reader reader = readerMapper.getReaderById(readerId);
         int readingState;
@@ -89,4 +94,5 @@ public class ReaderServiceImpl implements ReaderService {
             readerMapper.updateBookReadingState(readerId, bookId, readingState);
         }
     }
+
 }

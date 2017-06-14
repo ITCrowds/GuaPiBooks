@@ -19,4 +19,8 @@
         WHERE READER_ID = #{readerId};
     </select>
 
+    <insert id="setReaderBookNote">
+        INSERT INTO NOTE(READER_ID,BOOK_ID,NOTE_CONTENT)
+        VALUES(#{readerId},#{bookId},#{bookNote})
+    </insert>
 </mapper>

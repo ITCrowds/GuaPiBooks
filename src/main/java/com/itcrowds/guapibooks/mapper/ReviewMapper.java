@@ -14,4 +14,8 @@ public interface ReviewMapper {
     int getOneBookAllReviewsCount(@Param("bookId") int bookId);
 
     List<Review> getReviewListByReader(@Param("readerId") int readerId);
+
+    void setReaderBookReview(@Param("readerId") int readerId,
+                             @Param("bookId") int bookId,
+                             @Param("bookReview") String bookReview);
 }

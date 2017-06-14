@@ -21,4 +21,8 @@ public class NoteServiceImpl implements NoteService {
     public List<Note> getNoteListByReader(int readerId) {
         return noteMapper.getNoteListByreader(readerId);
     }
+
+    public void setReaderBookNote(int readerId, int bookId,String bookNote){
+        noteMapper.setReaderBookNote(readerId,bookId,bookNote);
+    }
 }

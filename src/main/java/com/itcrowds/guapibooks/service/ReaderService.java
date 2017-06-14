@@ -59,5 +59,4 @@ public interface ReaderService {
     Reader getLoginReader();
 
     void setBookReadingState(int readerId, int bookId, String readingState);
-
 }

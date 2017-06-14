@@ -121,5 +121,19 @@
     $(document).ready(loadHtmlPart('/reader/readState', 'contentPart'));
     /*]]>*/
 </script>
+
+<script type="text/javascript" th:inline="javascript">
+    function postReview(bookId){
+
+    var text =$("#name").val();
+    $.post('/reader/review',{
+        bookId:bookId,
+        bookNote:$("#name").val()
+    },function(data){
+        $(document).ready(loadHtmlPart('/reader/bookNote', 'contentPart'));
+    });
+}
+</script>
+
 </body>
 </html>

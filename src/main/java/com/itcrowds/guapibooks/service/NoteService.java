@@ -8,5 +8,5 @@ import java.util.List;
 public interface NoteService {
 
     List<Note> getNoteListByReader(int readerId);
-
+    void setReaderBookNote(int readerId, int bookId,String bookNote);
 }

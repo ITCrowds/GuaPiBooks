@@ -10,4 +10,7 @@ import java.util.List;
 public interface NoteMapper {
     List<Note> getNoteListByreader(@Param("readerId") int readerId);
 
+    void setReaderBookNote(@Param("readerId") int readerId,
+                      @Param("bookId") int bookId,
+                      @Param("bookNote") String bookNote);
 }

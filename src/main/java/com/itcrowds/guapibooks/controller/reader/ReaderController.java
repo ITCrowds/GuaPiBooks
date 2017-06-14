@@ -72,7 +72,7 @@ public class ReaderController {
     public String bookNote(Model model) {
         Reader reader = readerService.getLoginReader();
         model.addAttribute("readerName", reader.getName());
-            model.addAttribute("notes", noteService.getNoteListByReader(reader.getId()));
+        model.addAttribute("notes", noteService.getNoteListByReader(reader.getId()));
         return "reader/bookNote";
     }
 
@@ -108,9 +108,28 @@ public class ReaderController {
     public String postBookState(Model model,
                                 @RequestParam("bookId") String bookId,
                                 @RequestParam("bookState") String bookState) {
-        logger.info(bookId);
         Reader reader = readerService.getLoginReader();
         readerService.setBookReadingState(reader.getId(), Integer.valueOf(bookId), bookState);
         return "ok";
+    }
+
+    @RequestMapping(value = "review", method = RequestMethod.POST)
+    @ResponseBody
+    public String postReview(Model model,
+                                @RequestParam("bookId") String bookId,
+                                @RequestParam("review") String bookReview) {
+        Reader reader = readerService.getLoginReader();
+        reviewService.setReaderBookReview(reader.getId(), Integer.valueOf(bookId), bookReview);
+        return "books/bookinfo";
+    }
+
+    @RequestMapping(value = "note", method = RequestMethod.POST)
+    @ResponseBody
+    public String postNote(Model model,
+                             @RequestParam("bookId") String bookId,
+                             @RequestParam("bookNote") String bookNote) {
+        Reader reader = readerService.getLoginReader();
+        noteService.setReaderBookNote(reader.getId(), Integer.valueOf(bookId), bookNote);
+        return bookNote(model);
     }
 }
