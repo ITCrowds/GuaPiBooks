@@ -7,4 +7,6 @@ public interface ReviewService {
     List<Review> getReviewByBookId(int bookId);
 
     List<Review> getReviewByReaderId(int readerId);
+
+    void setReaderBookReview(int readerId, int bookId, String bookReview);
 }

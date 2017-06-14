@@ -28,4 +28,9 @@
         FROM REVIEW, READER
         WHERE READER.READER_ID = #{readerId} AND READER.READER_ID = REVIEW.READER_ID;
     </select>
+
+    <insert id="setReaderBookReview">
+        INSERT INTO REVIEW(BOOK_ID,READER_ID,REVIEW_CONTENT)
+        VALUES(#{bookId},#{readerId},#{bookReview})
+    </insert>
 </mapper>

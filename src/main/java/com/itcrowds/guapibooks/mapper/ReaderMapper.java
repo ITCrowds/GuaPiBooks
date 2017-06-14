@@ -32,11 +32,17 @@ public interface ReaderMapper {
 
     List<Integer> getFollowingReaderIDList(@Param("id") int id);
 
+    //下面三个函数用于修改读者对书的状态，有则更新，无则插入
+    void insertBookReadingState(@Param("readerId") int readerId,
+                                @Param("bookId") int bookId,
+                                @Param("bookState") int bookState);
 
-    void insertBookReadingState(@Param("readerId") int readerId, @Param("bookId") int bookId, @Param("bookState") int bookState);
+    void updateBookReadingState(@Param("readerId") int readerId,
+                                @Param("bookId") int bookId,
+                                @Param("bookState") int bookState);
 
-    void updateBookReadingState(@Param("readerId") int readerId, @Param("bookId") int bookId, @Param("bookState") int bookState);
+    int getCountByReaderAndBook(@Param("readerId") int readerId,
+                                @Param("bookId") int bookId);
 
-    int getCountByReaderAndBook(@Param("readerId") int readerId, @Param("bookId") int bookId);
 
 }

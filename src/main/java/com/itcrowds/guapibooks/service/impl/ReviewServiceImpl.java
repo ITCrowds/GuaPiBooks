@@ -22,4 +22,10 @@ public class ReviewServiceImpl implements ReviewService {
     public List<Review> getReviewByReaderId(int readerId) {
         return reviewMapper.getReviewListByReader(readerId);
     }
+
+
+    @Override
+    public void setReaderBookReview(int readerId, int bookId, String bookReview){
+        reviewMapper.setReaderBookReview(readerId,bookId,bookReview);
+    }
 }
