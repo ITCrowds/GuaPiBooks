@@ -92,9 +92,7 @@
                             <div id="interest_sect_level" class="clearfix">
                                 <a href="#" rel="nofollow" class="j a_show_login colbutt ll" name="pbtn-26708119-wish">
                                     <span>
-                                        <form method="POST" action="/book/bookState?bookId=${book.bookId}&&bookState=reading" class="miniform">
-                                            <input type="submit" class="minisubmit j " value="想读" title="" />
-                                        </form>
+                                        <input type="submit" onclick="postBookStatus('/reader/bookState','1','toread');" class="minisubmit j " value="想读" title=""  />
                                     </span>
                                 </a>
                                 <a href="#" rel="nofollow" class="j a_show_login colbutt ll" name="pbtn-26708119-do">
@@ -107,7 +105,7 @@
                                 <a href="#" rel="nofollow" class="j a_show_login colbutt ll" name="pbtn-26708119-collect">
                                     <span>
                                         <form method="POST" action="https://www.douban.com/register?reason=collectcollect" class="miniform">
-                                            <input type="submit" class="minisubmit j " value="读过" title="" />
+                                            <input type="submit" class="minisubmit j "  value="读过" title="" />
                                         </form>
                                     </span>
                                 </a>
@@ -122,12 +120,6 @@
                                     </li>
                                 </ul>
                             </div>
-                            <script>
-                                //bind events for collection button.
-                                $('.collect_btn', '#interest_sect_level').each(function(){
-                                    Douban.init_collect_btn(this);
-                                });
-                            </script>
                         </div>
                         <br clear="all" />
                         <div id="collect_form_26708119"></div>
@@ -269,13 +261,18 @@
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" th:inline="javascript">
-    /*<![CDATA[*/
-    function postBookStatus(url, divID) {
-        $.get(url, function (data) {
-            $('#' + divID).html(data);
-        })
+    function postBookStatus(url,bookId,bookState) {
+        alert("hello,world");
+        $.post(url,
+            {
+                bookId:bookId,
+                bookState:bookState
+//            },function(data,status){
+            },function(data){
+                alert("Data: " + data);
+//                alert("Data: " + data + "\nStatus: " + status);
+            });
     }
-    /*]]>*/
 </script>
 </body>
 </html>

@@ -29,5 +29,7 @@ public interface ReaderMapper {
      */
     List<Integer> getBookIDListByReaderAndReadingState(@Param("id") int id, @Param("state") int state);
 
-    void setBookReadingState(@Param("readerId") int readerId,@Param("bookId") int bookId,@Param("bookState") int bookState);
+    void insertBookReadingState(@Param("readerId") int readerId,@Param("bookId") int bookId,@Param("bookState") int bookState);
+    void updateBookReadingState(@Param("readerId") int readerId,@Param("bookId") int bookId,@Param("bookState") int bookState);
+    int getCountByReaderAndBook(@Param("readerId") int readerId,@Param("bookId") int bookId);
 }

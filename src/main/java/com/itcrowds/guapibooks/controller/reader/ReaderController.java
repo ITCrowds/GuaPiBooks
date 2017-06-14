@@ -1,16 +1,16 @@
 package com.itcrowds.guapibooks.controller.reader;
 
+import com.itcrowds.guapibooks.controller.HomeController;
 import com.itcrowds.guapibooks.controller.navigationBar.NavigationBar;
 import com.itcrowds.guapibooks.domain.Reader;
 import com.itcrowds.guapibooks.service.ReaderService;
+import com.itcrowds.guapibooks.util.ReaderLoggingStatusHelper;
 
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +18,10 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("/reader")
 public class ReaderController {
+    private static Logger logger = LoggerFactory.getLogger(HomeController.class);
+
+    @Resource
+    private ReaderLoggingStatusHelper readerLoggingStatusHelper;
 
     @Resource
     private NavigationBar navigationBar;
@@ -29,8 +33,8 @@ public class ReaderController {
      * 读者书房
      */
     @RequestMapping("/readerspace")
-    public String readerSpacePage(Model model, HttpServletRequest request){
-        Reader reader = (Reader) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    public String readerSpacePage(Model model, HttpServletRequest request) {
+        Reader reader = readerLoggingStatusHelper.getLoginReader();
         model.addAttribute("reader", reader);
 
         navigationBar.setNavigationBar(model);
@@ -39,7 +43,7 @@ public class ReaderController {
 
     @RequestMapping("readState")
     public String bookState(Model model) {
-        Reader reader = (Reader) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Reader reader = readerLoggingStatusHelper.getLoginReader();
         model.addAttribute("readingBooks", readerService.getBookListByReaderAndReadingState(reader.getId(), Reader.READING));
         model.addAttribute("toReadBooks", readerService.getBookListByReaderAndReadingState(reader.getId(), Reader.TOREAD));
         model.addAttribute("readedBooks", readerService.getBookListByReaderAndReadingState(reader.getId(), Reader.READED));
@@ -71,10 +75,15 @@ public class ReaderController {
         return "reader/friend";
     }
 
-    @RequestMapping(value = "bookState",method = RequestMethod.POST)
+    @RequestMapping(value = "bookState", method = RequestMethod.POST)
     @ResponseBody
-    public void postBookState(Model model,@PathVariable("reason") String bookState,@PathVariable("bookId") String bookId){
-        Reader reader = (Reader) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        readerService.setBookReadingState(reader.getId(),Integer.valueOf(bookId),bookState);
+//    public Reader postBookState(@RequestBody Reader reader, Model model,
+    public String postBookState(Model model,
+                                @RequestParam("bookId") String bookId,
+                                @RequestParam("bookState") String bookState) {
+        logger.info(bookId);
+        Reader reader = readerLoggingStatusHelper.getLoginReader();
+        readerService.setBookReadingState(reader.getId(), Integer.valueOf(bookId), bookState);
+        return "ok";
     }
 }
