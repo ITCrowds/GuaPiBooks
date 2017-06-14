@@ -5,4 +5,6 @@ import java.util.List;
 
 public interface ReviewService {
     List<Review> getReviewByBookId(int bookId);
+
+    List<Review> getReviewByReaderId(int readerId);
 }

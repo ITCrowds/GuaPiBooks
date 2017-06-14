@@ -7,6 +7,8 @@ import com.itcrowds.guapibooks.mapper.ReaderMapper;
 import com.itcrowds.guapibooks.service.ReaderService;
 import com.itcrowds.guapibooks.util.Md5Util;
 
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -44,6 +46,30 @@ public class ReaderServiceImpl implements ReaderService {
             readingBookList.add(bookMapper.getBookById(bookId));
         }
         return readingBookList;
+    }
+
+    @Override
+    public List<Reader> getFollowingReader(int readerId) {
+        List<Reader> followingReaderList = new ArrayList<>();
+        List<Integer> followingReaderIDList = readerMapper.getFollowingReaderIDList(readerId);
+        for (int followingId : followingReaderIDList) {
+            followingReaderList.add(readerMapper.getReaderById(followingId));
+        }
+        return followingReaderList;
+    }
+
+    @Override
+    public boolean isLogin() {
+        return !(SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken);
+    }
+
+    @Override
+    public Reader getLoginReader() {
+        if (isLogin()) {
+            return (Reader) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        } else {
+            return null;
+        }
     }
 
 }

@@ -1,23 +1,55 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>瓜皮读书 · 书房</title>
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="/css/style.css" rel="stylesheet "/>
-    <link href="/css/readerspace.css" rel="stylesheet"/>
-</head>
-<body>
-<h1>BOOKREVIEW</h1>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</body>
+<ul class="notelist" th:if="${reviews.size() != 0}">
+    <li class="noteitem" th:each="review,reviewStat:${reviews}">
+        <div class="mainblock col-md-12">
+            <div class="personinfo">
+                <div class="cover">
+                    <div class="headpic">
+                        <img class="face_radius"
+                             src="http://tva3.sinaimg.cn/crop.153.82.383.383.180/b1fe14bajw8ezmgsly4jaj20j60f9ael.jpg"
+                             width="60" height="60" alt="Budience"/>
+                    </div>
+                    <div class="info">
+                        <div class="nameBox">
+                            <span th:text="${review.readerName}">李树根</span>
+                        </div>
+                        <div class="timestamp">
+                                    <span>
+                                        2017年6月13日 20:08
+                                    </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book">
+                <a class="cover"
+                   th:href="@{/book/info/{id}(id=${books[reviewStat.index].bookId})}">
+                    <div class="bookquato">
+                        <div class="cover">
+                            <img th:src="${books[reviewStat.index].bookPic}"
+                                 th:alt="${books[reviewStat.index].bookName}"
+                                 alt="image loading..." width="106px" height="158px"/>
+
+                        </div>
+                        <div class="info">
+                            <span th:text="${books[reviewStat.index].bookName}">你好，法奈利</span>
+                        </div>
+                        <div class="author"><span th:text="${books[reviewStat.index].bookAuthor}">[美] 杰西卡•诺尔</span></div>
+                    </div>
+                </a>
+            </div>
+            <div class="comment">
+                <div class="commit">
+                    <p th:text="${review.reviewContent}">这是一本好书</p>
+                    <!--<p>这是一本特别好的好书</p>-->
+                    <!--<p>-->
+                        <!--dsadsaassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</p>-->
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 </html>

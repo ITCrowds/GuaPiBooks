@@ -28,4 +28,7 @@ public interface ReaderMapper {
      * @return 读者某阅读状态的书籍的ID列表
      */
     List<Integer> getBookIDListByReaderAndReadingState(@Param("id") int id, @Param("state") int state);
+
+    List<Integer> getFollowingReaderIDList(@Param("id") int id);
+
 }

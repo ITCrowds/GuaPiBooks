@@ -1,13 +1,20 @@
 package com.itcrowds.guapibooks.controller.reader;
 
 import com.itcrowds.guapibooks.controller.navigationBar.NavigationBar;
+import com.itcrowds.guapibooks.domain.Book;
 import com.itcrowds.guapibooks.domain.Reader;
+import com.itcrowds.guapibooks.domain.Review;
+import com.itcrowds.guapibooks.service.BookService;
+import com.itcrowds.guapibooks.service.NoteService;
 import com.itcrowds.guapibooks.service.ReaderService;
-import com.itcrowds.guapibooks.util.ReaderLoggingStatusHelper;
+import com.itcrowds.guapibooks.service.ReviewService;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -15,8 +22,6 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("/reader")
 public class ReaderController {
-    @Resource
-    private ReaderLoggingStatusHelper readerLoggingStatusHelper;
 
     @Resource
     private NavigationBar navigationBar;
@@ -24,12 +29,21 @@ public class ReaderController {
     @Resource
     private ReaderService readerService;
 
+    @Resource
+    private ReviewService reviewService;
+
+    @Resource
+    private BookService bookService;
+
+    @Resource
+    private NoteService noteService;
+
     /**
      * 读者书房
      */
     @RequestMapping("/readerspace")
     public String readerSpacePage(Model model, HttpServletRequest request){
-        Reader reader = readerLoggingStatusHelper.getLoginReader();
+        Reader reader = readerService.getLoginReader();
         model.addAttribute("reader", reader);
 
         navigationBar.setNavigationBar(model);
@@ -38,7 +52,7 @@ public class ReaderController {
 
     @RequestMapping("readState")
     public String bookState(Model model) {
-        Reader reader = readerLoggingStatusHelper.getLoginReader();
+        Reader reader = readerService.getLoginReader();
         model.addAttribute("readingBooks", readerService.getBookListByReaderAndReadingState(reader.getId(), Reader.READING));
         model.addAttribute("toReadBooks", readerService.getBookListByReaderAndReadingState(reader.getId(), Reader.TOREAD));
         model.addAttribute("readedBooks", readerService.getBookListByReaderAndReadingState(reader.getId(), Reader.READED));
@@ -52,11 +66,22 @@ public class ReaderController {
 
     @RequestMapping("/bookNote")
     public String bookNote(Model model) {
+        Reader reader = readerService.getLoginReader();
+        model.addAttribute("readerName", reader.getName());
+            model.addAttribute("notes", noteService.getNoteListByReader(reader.getId()));
         return "reader/bookNote";
     }
 
     @RequestMapping("bookReview")
     public String bookReview(Model model) {
+        Reader reader = readerService.getLoginReader();
+        List<Book> books = new ArrayList<>();
+        List<Review> reviews = reviewService.getReviewByReaderId(reader.getId());
+        for (Review re : reviews) {
+            books.add(bookService.getBookById(re.getBookId()));
+        }
+        model.addAttribute("reviews", reviews);
+        model.addAttribute("books", books);
         return "reader/bookReview";
     }
 
@@ -67,6 +92,9 @@ public class ReaderController {
 
     @RequestMapping("friend")
     public String friend(Model model) {
+        Reader reader = readerService.getLoginReader();
+        List<Reader> rea = readerService.getFollowingReader(reader.getId());
+        model.addAttribute("followingReaders", rea);
         return "reader/friend";
     }
 }

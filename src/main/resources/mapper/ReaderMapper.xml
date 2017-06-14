@@ -36,4 +36,8 @@
     <select id="getBookIDListByReaderAndReadingState" resultType="int">
         SELECT BOOK_ID FROM READER_BOOK WHERE READER_ID = #{id} AND REDAER_BOOK_STATUS = #{state}
     </select>
+
+    <select id="getFollowingReaderIDList" resultType="int">
+        SELECT FOLLOW_ID FROM READER_FOLLOWER WHERE READER_ID = #{id}
+    </select>
 </mapper>

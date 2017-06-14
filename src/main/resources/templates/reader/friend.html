@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>瓜皮读书 · 书房</title>
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="/css/style.css" rel="stylesheet "/>
-    <link href="/css/readerspace.css" rel="stylesheet"/>
-</head>
-<body>
-<h1>BOOKMATES</h1>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</body>
+<div class="col-md-12 mainblock">
+    <ul class="friendlist">
+        <!--书友列表-->
+        <li class="frienditem" th:each="followingReader:${followingReaders}">
+            <div class="division">
+                <div class="headpic">
+                    <a class="link" th:href="@{/readerinfo/{id}(id=${followingReader.id})}" href="/readerinfo/1">
+                        <img class="face_radius" src="http://tva3.sinaimg.cn/crop.153.82.383.383.180/b1fe14bajw8ezmgsly4jaj20j60f9ael.jpg" width="60" height="60" alt="Budience"/>
+                    </a>
+                </div>
+                <div class="info">
+                    <div class="friendname">
+                        <a class="link" th:href="@{/readerinfo/{id}(id=${followingReader.id})}" href="/readerinfo/1">
+                            <span class="name"  th:text="${followingReader.name}">王小明</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="listbutton">
+                    <button class="btnpage btn" id="have-followed" style="display: none"><span>关注</span></button>
+                    <button class="btnpage btn" id="not-follow"><span>取消关注</span></button>
+                </div>
+                <div><hr/></div>
+            </div>
+        </li>
+    </ul>
+</div>
 </html>

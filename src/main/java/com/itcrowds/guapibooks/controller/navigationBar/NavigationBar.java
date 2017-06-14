@@ -2,7 +2,7 @@ package com.itcrowds.guapibooks.controller.navigationBar;
 
 import com.itcrowds.guapibooks.controller.HomeController;
 import com.itcrowds.guapibooks.domain.Reader;
-import com.itcrowds.guapibooks.util.ReaderLoggingStatusHelper;
+import com.itcrowds.guapibooks.service.ReaderService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,15 +20,15 @@ public class NavigationBar {
     private static Logger logger = LoggerFactory.getLogger(HomeController.class);
 
     @Resource
-    private ReaderLoggingStatusHelper readerLoggingStatusHelper;
+    private ReaderService readerService;
 
     /**
      * 设置导航栏数据/状态 判断用户登录与否
      * @param model 调用者提供的model(controller中)
      */
     public void setNavigationBar(Model model) {
-        if (readerLoggingStatusHelper.isLogin()) {
-            Reader reader = readerLoggingStatusHelper.getLoginReader();
+        if (readerService.isLogin()) {
+            Reader reader = readerService.getLoginReader();
             model.addAttribute("isLogin", true);
             model.addAttribute("readerName", reader.getName());
             logger.info("Reader is: " + reader.getName());

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itcrowds.guapibooks.mapper.NoteMapper">
+    <cache eviction="LRU" flushInterval="60000" readOnly="true"/>
+
+    <resultMap id="note" type="com.itcrowds.guapibooks.domain.Note">
+        <id column="NOTE_ID" property="noteId" javaType="Integer"/>
+        <result column="READER_ID" property="readerId" javaType="Integer"/>
+        <result column="BOOK_ID" property="bookId" javaType="Integer"/>
+        <result column="NOTE_CONTENT" property="noteContent" javaType="String"/>
+    </resultMap>
+
+    <select id="getNoteListByreader" resultMap="note" resultType="Note">
+        SELECT *
+        FROM NOTE
+        WHERE READER_ID = #{readerId};
+    </select>
+
+</mapper>

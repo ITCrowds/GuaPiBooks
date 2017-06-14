@@ -1,23 +1,46 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>瓜皮读书 · 书房</title>
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="/css/style.css" rel="stylesheet "/>
-    <link href="/css/readerspace.css" rel="stylesheet"/>
-</head>
-<body>
-<h1>BOOKNOTES</h1>
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</body>
+<div class="editarea col-md-12">
+    <div class="mainblock" style="height: 200px">
+        <div class="wordarea">
+            <form class="form-group">
+                <label for="name"><span>想记录下什么？</span></label>
+                <textarea type="text" class="form-control" id="name"
+                          style="height: 100px"></textarea>
+                <div class="buttongroup">
+                    <button class="btn subtn"><span>发布</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="displayarea col-md-12">
+    <ul class="notelist" th:if="${notes.size() != 0}">
+        <li class="noteitem" th:each="note:${notes}">
+            <div class="mainblock ">
+                <div class="personinfo">
+                    <div class="cover">
+                        <div class="headpic">
+                            <img class="face_radius"
+                                 src="http://tva3.sinaimg.cn/crop.153.82.383.383.180/b1fe14bajw8ezmgsly4jaj20j60f9ael.jpg"
+                                 width="60" height="60" alt="Budience"/>
+                        </div>
+                        <div class="info">
+                            <div class="nameBox" th:text="${readerName}">
+                                王小明
+                            </div>
+                            <div class="timestamp">
+                                2017年6月13日
+                                9:08
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="note">
+                    <p th:text="${note.noteContent}">adsdaddasasaadas</p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
 </html>

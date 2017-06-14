@@ -13,10 +13,9 @@
 
     <!--内容列举-->
     <div id="reading" class="shelf">
-        <ul class="list-col list-col5 list-express slide-item"
-            th:each="readingBook:${readingBooks}">
+        <ul class="list-col list-col5 list-express slide-item">
             <!--展示每一本-->
-            <li class="">
+            <li class="" th:each="readingBook:${readingBooks}">
                 <div class="cover">
                     <a th:href="@{/book/info/{id}(id=${readingBook.bookId})}" title="书名"
                        th:title="${readingBook.bookName}">

@@ -17,4 +17,9 @@ public class ReviewServiceImpl implements ReviewService {
     public List<Review>  getReviewByBookId(int bookId){
         return reviewMapper.getOneBookAllReviews(bookId);
     }
+
+    @Override
+    public List<Review> getReviewByReaderId(int readerId) {
+        return reviewMapper.getReviewListByReader(readerId);
+    }
 }

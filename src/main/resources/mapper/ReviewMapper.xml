@@ -10,10 +10,22 @@
         <result column="BOOK_ID" property="bookId" javaType="Integer"/>
         <result column="REVIEW_CONTENT" property="reviewContent" javaType="String"/>
         <result column="READER_NAME" property="readerName" javaType="String"/>
+        <result column="READER_ID" property="readerId" javaType="Integer"/>
     </resultMap>
 
     <select id="getOneBookAllReviews" resultMap="review" resultType="review">
         SELECT REVIEW_CONTENT,READER.READER_NAME FROM REVIEW,READER WHERE BOOK_ID = #{bookId}
         AND REVIEW.READER_ID = READER.READER_ID
+    </select>
+
+    <select id="getReviewListByReader" resultMap="review" resultType="review">
+        SELECT
+            REVIEW_ID,
+            BOOK_ID,
+            REVIEW_CONTENT,
+            READER.READER_NAME,
+            READER.READER_ID
+        FROM REVIEW, READER
+        WHERE READER.READER_ID = #{readerId} AND READER.READER_ID = REVIEW.READER_ID;
     </select>
 </mapper>

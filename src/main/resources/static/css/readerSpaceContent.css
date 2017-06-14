@@ -1,0 +1,144 @@
+.test {
+    height: 150px;
+    background: #0069b3;
+    font-size: 100px;
+    color: white;
+}
+
+.face_radius {
+    border-radius: 50%;
+}
+
+.headpic {
+    float: left;
+    margin-right: 10px;
+}
+
+.nameBox, .friendname {
+    font-size: 25px;
+}
+
+.friendname {
+    padding-top: 15px;
+    display: block;
+    float: left;
+}
+
+.timestamp {
+    color: #666666;
+}
+
+.personinfo, .note {
+    margin: 10px 20px;
+    padding: 10px 15px;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+.note {
+    margin-left: 91px;
+}
+
+.mainblock {
+    min-width: 300px;
+    margin: 15px 15px;
+    padding: 20px 0;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.btnpage, .mainblock {
+    border-radius: 5px;
+    border-color: rgb(0, 0, 0);
+    border: 1px;
+}
+
+.btnpage {
+    background-color: #ffffff;
+    padding: 10px 15px;
+    margin: 10px 25px;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+    margin-left: 340px;
+}
+
+.frienditem {
+    margin-top: 10px;
+
+}
+
+hr {
+    width: inherit;
+
+    margin-right: 20px;
+}
+
+.book {
+
+    margin: 0 0;
+    background-color: #f2f2f5;
+}
+
+.commit {
+    margin-left: 126px;
+}
+
+.bookquato {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 10px 103px;
+}
+
+.division {
+    margin-left: 20px;
+}
+
+.tagblock {
+    padding-left: 20px;
+
+}
+
+.tagitem {
+    margin: 10px 5px;
+
+    float: left;
+}
+
+.submitbtn {
+    width: 120px;
+    background-color: white;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.15);
+    margin: 20px 44px;
+}
+
+.btn_down {
+    background-color: #f2f2f5;
+}
+
+.clear {
+    clear: left;
+}
+
+.editarea {
+    margin-left: 40px;
+}
+
+textarea {
+    resize: none;
+}
+
+.wordarea {
+    margin: 0 20px;
+}
+
+.subtn {
+    width: 130px;
+    background-color: #ffc09f;
+    color: white;
+}
+
+.buttongroup {
+    margin-top: 10px;
+
+}
+

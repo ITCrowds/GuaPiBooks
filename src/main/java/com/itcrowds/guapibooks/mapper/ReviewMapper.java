@@ -1,7 +1,7 @@
 package com.itcrowds.guapibooks.mapper;
 
 import com.itcrowds.guapibooks.domain.Review;
-import org.apache.ibatis.annotations.Mapper;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -12,4 +12,6 @@ public interface ReviewMapper {
     List<Review> getOneBookAllReviews(@Param("bookId") int bookId);
 
     int getOneBookAllReviewsCount(@Param("bookId") int bookId);
+
+    List<Review> getReviewListByReader(@Param("readerId") int readerId);
 }

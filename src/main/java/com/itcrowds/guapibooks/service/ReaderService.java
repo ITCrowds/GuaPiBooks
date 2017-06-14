@@ -32,4 +32,23 @@ public interface ReaderService {
      * @return 正在阅读的书籍列表
      */
     List<Book> getBookListByReaderAndReadingState(int readerId, int readingState);
+
+    /**
+     * 获取读者关注的用户
+     * @param readerId 读者ID
+     * @return 关注的用户列表
+     */
+    List<Reader> getFollowingReader(int readerId);
+
+    /**
+     * 获取用户是否已经登录
+     * @return 用户是否已经登录
+     */
+    boolean isLogin();
+
+    /**
+     * 获取当前用户
+     * @return 返回当前reader, 没有登录返回NULL
+     */
+    Reader getLoginReader();
 }
