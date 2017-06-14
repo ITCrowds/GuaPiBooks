@@ -91,6 +91,8 @@ public class ReaderController {
 
     @RequestMapping("bookTag")
     public String bookTag(Model model) {
+        Reader reader = readerService.getLoginReader();
+
         return "reader/bookTag";
     }
 

@@ -1,23 +1,101 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>瓜皮读书 · 书房</title>
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="/css/style.css" rel="stylesheet "/>
-    <link href="/css/readerspace.css" rel="stylesheet"/>
-</head>
-<body>
-<h1>TAGS</h1>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</body>
+<div class="tagblock">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="taghead">
+                <h2>我喜欢的标签</h2>
+                <hr/>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="_taglist" id="appendtag">
+                <li class="tagitem">
+                    <button class="btn btn-default">
+                        <span>小说</span>
+                    </button>
+
+                </li>
+                <!--repeat on-->
+                <li class="tagitem">
+                    <button class="btn btn-default">
+                        <span>科技</span>
+                    </button>
+
+                </li>
+                <li class="tagitem">
+                    <button class="btn btn-default">
+                        <span>生活sadadsaas</span>
+                    </button>
+
+                </li>
+                <li class="tagitem">
+                    <button class="btn btn-default">
+                        <span>情感</span>
+                    </button>
+
+                </li>
+                <li class="tagitem">
+                    <button class="btn btn-default">
+                        <span>艺术</span>
+                    </button>
+
+                </li>
+                <li class="tagitem">
+                    <button class="btn btn-default">
+                        <span>文学</span>
+                    </button>
+
+                </li>
+                <li class="tagitem">
+                    <button class="btn btn-default btn_down">
+                        <span>武侠</span>
+                    </button>
+
+                </li>
+
+                <!--repead off-->
+            </ul>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 40px;margin-top: 20px" >
+        <div class="col-md-2" style=" margin-left: 45px">
+            <input type="text" class="form-control" id="tagname" placeholder="自定义标签"/>
+        </div>
+        <div class="col-md-1" style=" padding-left: 0">
+            <button class="btn addbtn" ><span><b/>+</span></button>
+        </div>
+        <div class="col-md-2">
+            <button class="btn submitbtn" style="margin-left: 20px"><span>提交</span></button>
+        </div>
+    </div>
+</div>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    $(document).ready(function(){
+        var list = document.getElementsByClassName('tagitem');
+        for(var i = 0; i < list.length ; ++i){
+            (function (x) {
+                list[x].onclick = function (x) {
+                    if($(this).children().hasClass('btn_down')){
+                        $(this).children().removeClass('btn_down');
+                    }
+                    else{
+                        $(this).children().addClass('btn_down');
+                    }
+                }
+            })(i);
+        }
+    });
+    $(".addbtn").on('click',function(){
+        var tagname = $("#tagname").val();
+        if(tagname!==""){
+            $("#appendtag").append("<li class='tagitem'><button class='btn btn-default btn_down'><span>"+tagname+"</span></button></li>");
+        }
+    });
+    /*]]>*/
+</script>
 </html>

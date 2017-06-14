@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itcrowds.guapibooks.mapper.TagMapper">
+    <cache eviction="LRU" flushInterval="60000" readOnly="true"/>
+
+    <resultMap id="tag" type="com.itcrowds.guapibooks.domain.Tag">
+        <id column="TAG_ID" property="tagId" javaType="Integer"/>
+        <result column="TAG_NAME" property="tagName" javaType="Integer"/>
+    </resultMap>
+
+    <select id="getTagById" resultMap="tag" resultType="Tag">
+        SELECT *
+        FROM TAG
+        WHERE TAG_ID = #{tagId};
+    </select>
+
+    <select id="getTagListByreader" resultMap="tag" resultType="Tag">
+        SELECT *
+        FROM TAG, READER_TAG
+        WHERE TAG.TAG_ID = READER_TAG.TAG_ID AND READER_TAG.READER_ID = #{readerId};
+    </select>
+
+</mapper>

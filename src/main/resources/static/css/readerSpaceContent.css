@@ -106,9 +106,9 @@ hr {
 
 .submitbtn {
     width: 120px;
-    background-color: white;
-    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.15);
-    margin: 20px 44px;
+    /*background-color: white;*/
+    /*box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.15);*/
+    /*margin: 20px 44px;*/
 }
 
 .btn_down {
@@ -120,7 +120,7 @@ hr {
 }
 
 .editarea {
-    margin-left: 40px;
+    margin-left: 0px;
 }
 
 textarea {
@@ -137,8 +137,28 @@ textarea {
     color: white;
 }
 
-.buttongroup {
+.addbtn, .submitbtn{
+    background-color: white;
+    background-color: white;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.15) inset;
+}
+
+.addbtn{
+    color: #f09015;
+    width: 38px;
+}
+
+.buttongroup{
     margin-top: 10px;
 
+}
+
+.tagblock{
+    min-width: 300px;
+    /*margin-top: 50px;*/
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    border-color: rgb(0, 0, 0);
+    border: 1px;
 }
 
