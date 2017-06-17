@@ -209,7 +209,9 @@
             bookId:bookId,
             review:$("#name").val()
         },function(data){
-            window.location.href = '/';
+            setTimeout(function () {
+                window.location.reload(true);
+            }, 1000);
         });
     }
 </script>

@@ -34,7 +34,7 @@
                         </a>
                     </div>
                     <div class = "info">
-                        <a class="title" href="skip url same to the last one" th:text="${book.bookName}"></a>
+                        <a class="title" th:href="@{/book/info/{id}(id=${book.bookId})}" th:text="${book.bookName}"></a>
                     </div>
                     <div class = "author" th:text="${book.bookAuthor}">
                     </div>
@@ -52,7 +52,7 @@
                     <li class="rankitem">
                         <span class="ranknum" th:text="${bookStat.count}"></span>
                         <div class="bookinfo">
-                            <a href="@{/book/info/${book.bookId}" th:text="${book.bookName}"></a>
+                            <a th:href="@{/book/info/{id}(id=${book.bookId})}" th:text="${book.bookName}"></a>
                             <div class="author" th:text="${book.bookAuthor}"></div>
                         </div>
                     </li>
